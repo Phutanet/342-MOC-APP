@@ -1,41 +1,78 @@
 import * as React from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack';
+
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import HomeScreen from '../screens/HomeScreen';
 import NewsScreen from '../screens/NewsScreen';
 import SettingScreen from '../screens/SettingScreen';
+import MainTabScreen from '../screens/MainTabScreen';
 
 
-const Stack = createStackNavigator();
+
+const Drawer = createDrawerNavigator();
+
 
 function AppStack() {
-    return (
-      <Stack.Navigator>
-        <Stack.Screen
-          name="HomeScreen"
-          component={HomeScreen}
-          options={{ header: () => null }}
-        />
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen 
+      name="HomeScreen" 
+      component={HomeScreen} 
+      options={{ 
+        title: 'Home',
+        headerStyle: {
+          backgroundColor: 'rgba(45, 73, 132, 1)',
+        },
+        headerTitleStyle: {
+          color: '#ffffff',
+          fontWeight: 'bold',
+          fontSize: 22,
+        },
+        headerTitleAlign: 'center',
+      }}
+      />
 
-        <Stack.Screen
-          name="NewsScreen"
-          component={NewsScreen}
-          options={{ header: () => null }}
-        />
+      <Drawer.Screen 
+      name="NewsScreen" 
+      component={NewsScreen} 
+      options={{ 
+        title: 'News',
+        headerStyle: {
+          backgroundColor: 'rgba(45, 73, 132, 1)',
+        },
+        headerTitleStyle: {
+          color: '#ffffff',
+          fontWeight: 'bold',
+          fontSize: 22,
+        },
+        headerTitleAlign: 'center',
+      }}
+      />
 
-        <Stack.Screen
-          name="SettingScreen"
-          component={SettingScreen}
-          options={{ header: () => null }}
-        />
+      <Drawer.Screen 
+      name="SettingScreen" 
+      component={SettingScreen} 
+      options={{ 
+        title: 'Settings',
+        headerStyle: {
+          backgroundColor: 'rgba(45, 73, 132, 1)',
+        },
+        headerTitleStyle: {
+          color: '#ffffff',
+          fontWeight: 'bold',
+          fontSize: 22,
+        },
+        headerTitleAlign: 'center',
+      }}
+      />
 
-  
-      </Stack.Navigator>
-  
-  
+      {/* <Drawer.Screen name="Home" component={MainTabScreen} />
+      <Drawer.Screen name="News" component={NewsScreen} />
+      <Drawer.Screen name="Settings" component={SettingScreen} /> */}
 
-    );
-  }
-  
-  export default AppStack;
+    </Drawer.Navigator>
+  );
+}
+
+export default AppStack;
