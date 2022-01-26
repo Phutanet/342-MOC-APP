@@ -9,13 +9,13 @@ import {
   Image,
 } from 'react-native';
 
-const SettingScreen = () => {
+const ServicesScreen = () => {
   
   return (
     <SafeAreaView style={styles.container}>
       
       <View>
-        <Text>THIS IS SETTING PAGE</Text>
+        <Text>THIS IS SERVICEs PAGE</Text>
 
       </View>
 
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default SettingScreen;
+export default ServicesScreen;

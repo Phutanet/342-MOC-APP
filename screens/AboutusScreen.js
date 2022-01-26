@@ -9,13 +9,13 @@ import {
   Image,
 } from 'react-native';
 
-const NewsScreen = () => {
+const AboutusScreen = () => {
   
   return (
     <SafeAreaView style={styles.container}>
       
       <View>
-        <Text>THIS IS NEWS PAGE</Text>
+        <Text>THIS IS ABOUT US PAGE</Text>
 
       </View>
 
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default NewsScreen;
+export default AboutusScreen;
