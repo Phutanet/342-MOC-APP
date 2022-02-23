@@ -9,13 +9,13 @@ import {
   Image,
 } from 'react-native';
 
-const AboutusScreen = () => {
+const PriceScreen = () => {
   
   return (
     <SafeAreaView style={styles.container}>
       
       <View>
-        <Text>THIS IS ABOUT US PAGE</Text>
+        <Text>THIS IS View Prices PAGE</Text>
 
       </View>
 
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default AboutusScreen;
+export default PriceScreen;

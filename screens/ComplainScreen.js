@@ -9,15 +9,16 @@ import {
   Image,
 } from 'react-native';
 
-
-
-const HomeScreen = ({navigation}) => {
+const ComplainScreen = () => {
+  
   return (
     <SafeAreaView style={styles.container}>
-
+      
       <View>
-        <Text>THIS IS Home PAGE</Text>
+        <Text>THIS IS Complain PAGE</Text>
+
       </View>
+
 
     </SafeAreaView>
   );
@@ -29,12 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  logo: {
-    width: 150,
-    height: 150,
-    resizeMode: 'stretch',
-    marginBottom: 25,
-  },
+
 });
 
-export default HomeScreen;
+export default ComplainScreen;

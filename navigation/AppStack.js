@@ -6,11 +6,20 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+} from 'react-native';
 
 
 import HomeScreen from '../screens/HomeScreen';
-import ServicesScreen from '../screens/ServicesScreen';
-import AboutusScreen from '../screens/AboutusScreen';
+import PriceScreen from '../screens/PriceScreen';
+import ContactScreen from '../screens/ContactScreen';
+import ComplainScreen from '../screens/ComplainScreen';
 
 
 const Stack = createStackNavigator();
@@ -31,8 +40,8 @@ function AppStack() {
     }}
     tabBarOptions={{
       labelStyle: {
-        fontSize: 16,
-        paddingBottom: 7,
+        fontSize: 14,
+        paddingBottom: 10,
         color: '#ffffff', //font label color
         fontWeight: 'bold',
       },
@@ -46,31 +55,43 @@ function AppStack() {
       name="HomeScreen" 
       component={HomeScreen} 
       options={{
-        tabBarLabel: 'Home',
+        tabBarLabel: 'หน้าหลัก',
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons name="home" color={color} size={size} />
         ),
       }}/>
 
       <Tab.Screen 
-      name="ServicesScreen" 
-      component={ServicesScreen}
+      name="PriceScreen" 
+      component={PriceScreen}
       options={{
-        tabBarLabel: 'Services',
+        tabBarLabel: 'ดูราคาสินค้า',
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="poll" color={color} size={size} />
+          <MaterialCommunityIcons name="chart-bar" color={color} size={size} />
         ),
       }}/>
 
       <Tab.Screen 
-      name="AboutusScreen" 
-      component={AboutusScreen}
+      name="Complain" 
+      component={ComplainScreen}
       options={{
-        tabBarLabel: 'About us',
+        tabBarLabel: 'ร้องเรียน',
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="account-group" color={color} size={size} /> //contacts account-group
+          <MaterialCommunityIcons name="file-document-edit-outline" color={color} size={size} />
+        ),
+      }}/>      
+
+      <Tab.Screen 
+      name="ContactScreen" 
+      component={ContactScreen}
+      options={{
+        tabBarLabel: 'ติดต่อเรา',
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="information-variant" color={color} size={size} /> //contacts account-group
         ),
       }}/>
+
+
 
     </Tab.Navigator>
 
