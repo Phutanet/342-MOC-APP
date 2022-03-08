@@ -7,28 +7,49 @@ import {
   TouchableOpacity,
   View,
   Image,
+  TextInput,
 } from 'react-native';
+
+
 
 const ComplainScreen = () => {
   
+  const [text, onChangeText] = React.useState();
+  const [number, onChangeNumber] = React.useState(null);
+  
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView>
+
+      <Text style={styles.topicText}>
+        ชื่อผู้ร้องเรียน
+      </Text>
       
-      <View>
-        <Text>THIS IS Complain PAGE</Text>
-
-      </View>
-
+      <TextInput
+        style={styles.inputBox}
+        onChangeText={onChangeText}
+        value={text}
+        placeholder="placeholder"
+      />
 
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  titleText: {
+    color: '#000000',
+  },
+
+  topicText: {
+    color: '#000000',
+  },
+
+  inputBox: {
+    width: 360,
+    height: 40,
+    borderWidth: 1,
+    borderRadius: 30,
+    borderColor: '#555',
   },
 
 });
