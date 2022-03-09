@@ -31,6 +31,7 @@ const Drawer = createDrawerNavigator();
 function AppStack() {
   
   return (
+    
     <Tab.Navigator 
     screenOptions={{ 
       headerShown: false, 
