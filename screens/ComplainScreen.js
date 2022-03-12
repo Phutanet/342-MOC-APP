@@ -8,7 +8,14 @@ import {
   View,
   Image,
   TextInput,
+  Button,
+  Pressable,
 } from 'react-native';
+
+import ImagePicker from 'react-native-image-crop-picker';
+
+
+
 
 
 
@@ -16,7 +23,23 @@ const ComplainScreen = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [petition, setPetition] = useState('');
-  
+  const [image, setImage] = useState('');
+
+  const choosePhotoFromLibrary = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 400,
+      cropping: true
+    }).then(image => {
+      console.log(image);
+      setImage(image.path);
+    });
+  };
+
+  const onSubmitPressed = () => {
+    console.warn('onSubmitPressed');
+  };
+
   
   return (
     <View style={styles.root}>
@@ -51,14 +74,18 @@ const ComplainScreen = ({navigation}) => {
 
       <Text>หลักฐานประกอบการร้องเรียน</Text>
 
-      <TextInput
-      value={email}
-      onChangeText={setEmail}
-      placeholder="อีเมล"
-      style={styles.inputBox}
+      <Button title='Choose Photo' onPress={choosePhotoFromLibrary}/>
+
+      <Image 
+      source={{
+        uri: image,
+      }} 
+      style={styles.imageUpload}
       />
 
-
+      <Pressable onPress={onSubmitPressed} style={styles.submitButton}>
+        <Text style={styles.submitButtonText}>ส่งคำร้อง</Text>
+      </Pressable>
 
 
 
@@ -82,6 +109,26 @@ const styles = StyleSheet.create({
 
       paddingHorizontal: 10,
       marginVertical: 5,
+    },
+
+    imageUpload: {
+      width: 100,
+      height: 100,
+      borderRadius: 5,
+    },
+
+    submitButton: {
+      backgroundColor: '#3B71F3',
+      width: '100%',
+      padding: 15,
+      marginVertical: 5,
+      alignItems: 'center',
+      borderRadius: 5,
+    },
+
+    submitButtonText:{
+      fontWeight: 'bold',
+      color: 'white',
     },
 
 });
