@@ -12,45 +12,77 @@ import {
 
 
 
-const ComplainScreen = () => {
+const ComplainScreen = ({navigation}) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [petition, setPetition] = useState('');
   
-  const [text, onChangeText] = React.useState();
-  const [number, onChangeNumber] = React.useState(null);
   
   return (
-    <SafeAreaView>
+    <View style={styles.root}>
+      <Text>ร้องเรียนราคาสินค้าไม่เป็นธรรม</Text>
 
-      <Text style={styles.topicText}>
-        ชื่อผู้ร้องเรียน
-      </Text>
-      
+      <Text>ชื่อผู้ร้องเรียน</Text>
+
       <TextInput
-        style={styles.inputBox}
-        onChangeText={onChangeText}
-        value={text}
-        placeholder="placeholder"
+      value={name}
+      onChangeText={setName}
+      placeholder="ชื่อจริง - นามสกุล"
+      style={styles.inputBox}
       />
 
-    </SafeAreaView>
+      <Text>อีเมล</Text>
+
+      <TextInput
+      value={email}
+      onChangeText={setEmail}
+      placeholder="อีเมล"
+      style={styles.inputBox}
+      />
+
+      <Text>ข้อความร้องเรียน</Text>
+
+      <TextInput
+      value={petition}
+      onChangeText={setPetition}
+      placeholder="ระบุข้อมูลอาทิเช่น ชื่อร้าน, ตำแหน่งที่ตั้ง, ประเภทสินค้า, ราคา"
+      style={styles.inputBox}
+      />
+
+      <Text>หลักฐานประกอบการร้องเรียน</Text>
+
+      <TextInput
+      value={email}
+      onChangeText={setEmail}
+      placeholder="อีเมล"
+      style={styles.inputBox}
+      />
+
+
+
+
+
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  titleText: {
-    color: '#000000',
-  },
+    root: {
+      alignItems: 'center',
+      padding: 20,
+    },
 
-  topicText: {
-    color: '#000000',
-  },
+    inputBox: {
+      backgroundColor: 'white',
+      width: '100%',
 
-  inputBox: {
-    width: 360,
-    height: 40,
-    borderWidth: 1,
-    borderRadius: 30,
-    borderColor: '#555',
-  },
+      borderColor: '#e8e8e8',
+      borderWidth: 1,
+      borderRadius: 5,
+
+      paddingHorizontal: 10,
+      marginVertical: 5,
+    },
 
 });
 

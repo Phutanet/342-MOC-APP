@@ -14,6 +14,10 @@ import {
 const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+        <Text>เข้าสู่ระบบ</Text>
+
+      </TouchableOpacity>
 
       <View>
         <Text>THIS IS Home PAGE</Text>

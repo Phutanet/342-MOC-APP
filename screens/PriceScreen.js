@@ -9,7 +9,7 @@ import {
   Image,
 } from 'react-native';
 
-const PriceScreen = () => {
+const PriceScreen = ({navigation}) => {
   
   return (
     <SafeAreaView style={styles.container}>

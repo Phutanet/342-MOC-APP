@@ -1,4 +1,3 @@
-import { red } from '@material-ui/core/colors';
 import * as React from 'react';
 import {useContext, useState, useEffect} from 'react';
 import {
@@ -9,11 +8,12 @@ import {
   View,
   Image,
   Linking,
-
+  ScrollView,
 } from 'react-native';
+
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const ContactScreen = () => {
+const ContactScreen = ({navigation}) => {
   const callcenterNumber = '025077000'
   
   return (
