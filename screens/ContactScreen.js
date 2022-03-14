@@ -18,8 +18,13 @@ const ContactScreen = ({navigation}) => {
   
   return (
     
-    <SafeAreaView style={styles.container}>
-
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text>
+          Herder
+        </Text>
+      </View>
+      <View style={styles.cardContract}>
       <View style={styles.card}>
         <TouchableOpacity 
       style={styles.buttonLink}
@@ -126,17 +131,29 @@ const ContactScreen = ({navigation}) => {
     </View>
      
 
-
-    </SafeAreaView>
+    </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    paddingBottom:40,
+
+  },
+  header:{
+    width:'100%',
+    height:50,
+    backgroundColor:'blue',
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  cardContract:{
+    backgroundColor:'white',
+    width:'100%',
+    alignItems:'center',
+    paddingTop:230,
+
   },
 
   buttonLink:{

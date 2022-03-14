@@ -5808,6 +5808,11 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
+"react-native-animated-header@^1.0.7":
+  "integrity" "sha512-h+YN9eukJYreoWIYrZu5oZL8vKoynkoqe8Icfn3k+0kXRtiZWA4rP31uabF8lavLm5F3N28uIj7BFvWthLrN7Q=="
+  "resolved" "https://registry.npmjs.org/react-native-animated-header/-/react-native-animated-header-1.0.7.tgz"
+  "version" "1.0.7"
+
 "react-native-codegen@^0.0.8":
   "integrity" "sha512-k/944+0XD+8l7zDaiKfYabyEKmAmyZgS1mj+4LcSRPyHnrjgCHKrh/Y6jM6kucQ6xU1+1uyMmF/dSkikxK8i+Q=="
   "resolved" "https://registry.npmjs.org/react-native-codegen/-/react-native-codegen-0.0.8.tgz"
@@ -5832,6 +5837,11 @@
   "integrity" "sha512-ih+0pWWRUNEFQyaHwGbH9rqJNOb7EBYMwKJhTY0VmsKIA9E+usfwMmQXAFIfOnee7fTn0A2vOXkBCPQZwyvnQw=="
   "resolved" "https://registry.npmjs.org/react-native-image-crop-picker/-/react-native-image-crop-picker-0.37.3.tgz"
   "version" "0.37.3"
+
+"react-native-image-header-scroll-view@^1.0.0":
+  "integrity" "sha512-34r9pc9DWQaB9fbgZkK+BPFDGv2UBvtMRQG+Ovr4z5GRVdLtelGWd1VrhjEv4JIw2ufJ3EE6DPyKecuDA22z6w=="
+  "resolved" "https://registry.npmjs.org/react-native-image-header-scroll-view/-/react-native-image-header-scroll-view-1.0.0.tgz"
+  "version" "1.0.0"
 
 "react-native-image-picker@^4.7.3":
   "integrity" "sha512-eRKm4wlsmZHmsWFyv77kYc2F+ZyEVqe0m7mqhsMzWk6TQT4FBDtEDxmRDDFq+ivCu/1QD+EPhmYcAIpeGr7Ekg=="
@@ -5895,7 +5905,7 @@
     "prop-types" "^15.7.2"
     "yargs" "^16.1.1"
 
-"react-native@*", "react-native@>=0.40.0", "react-native@>=0.42.0", "react-native@>=0.57", "react-native@0.67.1":
+"react-native@*", "react-native@>=0.40.0", "react-native@>=0.42.0", "react-native@>=0.57", "react-native@>=0.59.0", "react-native@0.67.1":
   "integrity" "sha512-doKN9qhtjilF+6p8603OVzqGKL4fq8EDAH5u00KPmZbL5ampHDQX9y8/uwlUvJggvHwZXlnvhW63u8Y1LA8rxw=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.67.1.tgz"
   "version" "0.67.1"
@@ -5977,7 +5987,7 @@
     "react-shallow-renderer" "^16.13.1"
     "scheduler" "^0.20.2"
 
-"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0", "react@^17.0.0", "react@>=16.0", "react@17.0.2":
+"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0", "react@^17.0.0", "react@>=16.0", "react@>=16.8.1", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
