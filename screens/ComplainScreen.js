@@ -39,9 +39,7 @@ const ComplainScreen = ({navigation}) => {
   };
 
   const onSubmitPressed = () => {
-    setcheck(!check)
     console.warn('onSubmitPressed');
-    console.warn(check)
   };
 
   
@@ -162,7 +160,7 @@ const styles = StyleSheet.create({
     },
 
     imageUpload: {
-      width: 130,
+      width: 160,
       height: 130,
       borderRadius: 5,
     },
