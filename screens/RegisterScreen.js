@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import {View, Text, Image, StyleSheet, TextInput, Pressable} from 'react-native'
-
+import {View, Text, TouchableOpacity, StyleSheet, TextInput, Pressable} from 'react-native'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 const RegisterScreen = ({navigation}) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -17,30 +17,45 @@ const RegisterScreen = ({navigation}) => {
 
 
     return (
-        <View style={styles.root}>
+        <View style={styles.container}>
+            <View style={styles.header}>
+                <Pressable >
+                    <View style={{padding:10}}>
+                        
+                            <MaterialCommunityIcons 
+                            onPress={() => navigation.navigate('LoginScreen')}
+                            name="chevron-left" size={40} color={'black'}/>
+                        
+                    </View>
+                </Pressable>
+            </View>
 
-            <Text>ลงทะเบียน</Text>
+            <Text style={styles.textTopic}>ลงทะเบียน</Text>
+                
 
-            <Text>ชื่อจริง - นามสกุล</Text>
+            <Text style={styles.textTopic1}>ชื่อจริง - นามสกุล</Text>
+            <View style={styles.boxInput}>
+                <TextInput
+                value={name}
+                onChangeText={setName}
+                placeholder="Name - Lastname"
+                style={styles.inputBox}
+                />
+            </View>
 
-            <TextInput
-            value={name}
-            onChangeText={setName}
-            placeholder="Name - Lastname"
-            style={styles.inputBox}
-            />
+            <Text style={styles.textTopic1}>อีเมล</Text> 
+            <View style={styles.boxInput}>
+                <TextInput
+                    value={email}
+                    onChangeText={setEmail}
+                    placeholder="E - mail"
+                    style={styles.inputBox}
+                    />
+            </View>
             
-            <Text>อีเมล</Text>
 
-            <TextInput
-            value={email}
-            onChangeText={setEmail}
-            placeholder="E - mail"
-            style={styles.inputBox}
-            />
-
-            <Text>รหัสผ่าน</Text>
-
+            <Text style={styles.textTopic1}>รหัสผ่าน</Text>
+        <View style={styles.boxInput}>
             <TextInput
             value={password}
             onChangeText={setPassword}
@@ -48,24 +63,28 @@ const RegisterScreen = ({navigation}) => {
             secureTextEntry={true}
             style={styles.inputBox}
             />
+        </View>
+            
 
-            <Text>ยืนยันรหัสผ่าน</Text>
-
-            <TextInput
+            <Text style={styles.textTopic1}>ยืนยันรหัสผ่าน</Text>
+            <View style={styles.boxInput}>
+                <TextInput
             value={password2}
             onChangeText={setPassword2}
             placeholder="Confirm Password"
             secureTextEntry={true}
             style={styles.inputBox}
             />
+            </View>
+            
+            <View style={{alignItems:'center'}}>
+                <Pressable onPress={onRegisterPressed} style={styles.loginButton}>
+                <Text style={styles.loginButtonText}>ลงทะเบียน / Register</Text>
+            </Pressable> 
+            </View>
+           
+            
 
-            <Pressable onPress={onRegisterPressed} style={styles.registerButton}>
-                <Text style={styles.registerButtonText}>ลงทะเบียน / Register</Text>
-            </Pressable>
-
-            <Pressable onPress={() => navigation.navigate('LoginScreen')}>
-                <Text style={styles.backToLoginText}>Back</Text>
-            </Pressable>
 
 
         </View>
@@ -73,21 +92,29 @@ const RegisterScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-    root: {
-        alignItems: 'center',
-        padding: 20,
+    container: {
+        flex:1,
+        backgroundColor:'white'
+    },
+    header:{
+        height:60
     },
 
     inputBox: {
-        backgroundColor: 'white',
-        width: '100%',
-
+        backgroundColor: '#e8e8e8',
+        width: '80%',
+        height:40,
         borderColor: '#e8e8e8',
-        borderWidth: 1,
-        borderRadius: 5,
-
-        paddingHorizontal: 10,
+        borderRadius: 30,
+        paddingHorizontal: 20,
         marginVertical: 5,
+      },
+    textTopic:{
+        paddingLeft:20,
+        paddingBottom:30,
+        fontSize:40,
+        fontWeight:'bold',
+        color:'black'
     },
 
     registerButton: {
@@ -107,6 +134,28 @@ const styles = StyleSheet.create({
     backToLoginText:{
         fontWeight: 'bold',
         color: 'gray',
+    },
+    textTopic1:{
+        textAlign:'left',
+        paddingLeft:30,
+        fontSize:18,
+        fontWeight:'bold',
+        padding:10
+      },
+      boxInput:{
+        alignItems:'center',
+      },
+      loginButton: {
+        backgroundColor: '#0000cd',
+        width: '40%',
+        padding: 10,
+        marginVertical: 25,
+        alignItems: 'center',
+        borderRadius: 25,
+    },
+    loginButtonText:{
+        fontWeight: 'bold',
+        color: 'white',
     },
 
 

@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     },
 
     submitButton: {
-      backgroundColor: '#3B71F3',
+      backgroundColor: '#0000cd',
       width: '25%',
       padding: 10,
       marginVertical: 10,
@@ -183,7 +183,8 @@ const styles = StyleSheet.create({
       fontSize:23,
       fontWeight:'bold',
       textAlign:'center',
-      padding:20
+      padding:20,
+      color:'black'
     },
     textTopic:{
       textAlign:'left',
@@ -191,8 +192,8 @@ const styles = StyleSheet.create({
       fontSize:18,
       fontWeight:'bold',
       padding:10
-    }
-    ,boxInput:{
+    },
+    boxInput:{
       alignItems:'center',
     },
     containerfile:{

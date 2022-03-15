@@ -19,82 +19,105 @@ const LoginScreen = ({navigation}) => {
     };
 
     return (
-        <View style={styles.root}>
-            <Image 
-            source={require('./image/mocLogo.png')} 
-            style={styles.logo} 
-            resizeMode="contain" 
+        <View style={styles.container}>
+            <View style={{alignItems:'center',padding:10}}>
+                <Image 
+                    source={require('./image/mocLogo.png')} 
+                    style={styles.logo} 
+                    resizeMode="contain" 
+                    />
+            <Text style={styles.headerLogin}>เข้าสู่ระบบ</Text>
+            </View>
+            
+
+            
+            <Text style={styles.textTopic}>อีเมล</Text>
+            <View  style={styles.boxInput}>
+                <TextInput
+                    value={email}
+                    onChangeText={setEmail}
+                    placeholder="E - mail"
+                    style={styles.inputBox}
             />
+            </View>
+            
 
-            <Text>เข้าสู่ระบบ</Text>
-            <Text>อีเมล</Text>
 
-            <TextInput
-            value={email}
-            onChangeText={setEmail}
-            placeholder="E - mail"
-            style={styles.inputBox}
-            />
-
-            <Text>รหัสผ่าน</Text>
-
-            <TextInput
-            value={password}
-            onChangeText={setPassword}
-            placeholder="Password"
-            secureTextEntry={true}
-            style={styles.inputBox}
-            />
-
+            <Text style={styles.textTopic}>รหัสผ่าน</Text>
+            <View style={styles.boxInput}>
+               <TextInput
+                    value={password}
+                    onChangeText={setPassword}
+                    placeholder="Password"
+                    secureTextEntry={true}
+                    style={styles.inputBox}
+                    /> 
+            </View>
+            
+        <View style={{alignItems:'center'}}>
             <Pressable onPress={onLoginPressed} style={styles.loginButton}>
                 <Text style={styles.loginButtonText}>เข้าสู่ระบบ / Login</Text>
             </Pressable>
+        </View>
 
+
+        
+
+
+        <View style={styles.footer}>
             <Pressable onPress={onForgotPasswordPressed}>
                 <Text style={styles.forgotPasswordButtonText}>ลืมรหัสผ่าน / Forgot Password?</Text>
             </Pressable>
+
+        <View style={{flexDirection: 'row', alignItems: 'center',padding:10}}>
+                <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+            </View>
 
             <Text>ท่านยังไม่มีบัญชีใช่หรือไม่?</Text>
 
             <Pressable onPress={() => navigation.navigate('RegisterScreen')}>
                 <Text style={styles.createAccountButtonText}>สร้างบัญชีใหม่ / Create account</Text>
             </Pressable>
+        </View>
+            
 
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    root: {
-        alignItems: 'center',
-        padding: 20,
+    container: {
+        backgroundColor:'white',
+    },
+    headerLogin:{
+        fontSize:35,
+        padding:10,
+        fontWeight:'bold',
+        color:'black'
+
     },
 
     logo: {
-        width: '70%',
-        maxWidth: 300,
-        maxHeight: 200,
+        width:200,
+        height:200
     },
-
     inputBox: {
-        backgroundColor: 'white',
-        width: '100%',
-
+        backgroundColor: '#e8e8e8',
+        width: '80%',
+        height:40,
         borderColor: '#e8e8e8',
-        borderWidth: 1,
-        borderRadius: 5,
-
-        paddingHorizontal: 10,
+        borderRadius: 30,
+        paddingHorizontal: 20,
         marginVertical: 5,
-    },
+      },
 
     loginButton: {
-        backgroundColor: '#3B71F3',
-        width: '100%',
-        padding: 15,
-        marginVertical: 5,
+        backgroundColor: '#0000cd',
+        width: '40%',
+        padding: 10,
+        marginVertical: 25,
         alignItems: 'center',
-        borderRadius: 5,
+        borderRadius: 25,
     },
 
     loginButtonText:{
@@ -111,6 +134,20 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'green',
     },
+    textTopic:{
+        textAlign:'left',
+        paddingLeft:30,
+        fontSize:18,
+        fontWeight:'bold',
+        padding:10
+      },
+      boxInput:{
+        alignItems:'center',
+      },
+      footer:{
+          alignItems:'center',
+          padding:60
+      }
 
 
 });
