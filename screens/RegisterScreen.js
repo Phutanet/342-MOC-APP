@@ -1,19 +1,22 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import {View, Text, TouchableOpacity, StyleSheet, TextInput, Pressable} from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { AuthContext } from '../navigation/AuthProvider';
+
+
 const RegisterScreen = ({navigation}) => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [password2, setPassword2] = useState('');
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [password2, setPassword2] = useState();
 
-    const onRegisterPressed = () => {
-        console.warn('onRegisterPressed');
-    };
+    const {register} = useContext(AuthContext);
 
-    const onBackToLoginPressed = () => {
-        console.warn('onBackToLoginPressed');
-    };
+    // const onRegisterPressed = () => {
+    //     console.warn('onRegisterPressed');
+    // };
+
+
 
 
     return (
@@ -78,7 +81,9 @@ const RegisterScreen = ({navigation}) => {
             </View>
             
             <View style={{alignItems:'center'}}>
-                <Pressable onPress={onRegisterPressed} style={styles.loginButton}>
+                <Pressable 
+                onPress={() => register(email, password)} 
+                style={styles.loginButton}>
                 <Text style={styles.loginButtonText}>ลงทะเบียน / Register</Text>
             </Pressable> 
             </View>

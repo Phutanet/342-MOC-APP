@@ -1,10 +1,15 @@
-import React, {useState} from 'react'
-import {View, Text, Image, StyleSheet, TextInput, Pressable} from 'react-native'
+import React, {useContext, useState} from 'react'
+import {View, Text, Image, StyleSheet, TextInput, Pressable, ScrollView} from 'react-native'
+import { AuthContext } from '../navigation/AuthProvider';
 
 
 const LoginScreen = ({navigation}) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const { user, logout } = useContext(AuthContext);
+    console.log(user);
+
+    const {login} = useContext(AuthContext);
 
     const onLoginPressed = () => {
         console.warn('onLoginPressed');
@@ -19,7 +24,7 @@ const LoginScreen = ({navigation}) => {
     };
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={{alignItems:'center',padding:10}}>
                 <Image 
                     source={require('./image/mocLogo.png')} 
@@ -36,6 +41,7 @@ const LoginScreen = ({navigation}) => {
                 <TextInput
                     value={email}
                     onChangeText={setEmail}
+                    // onChangeText={(userEmail) => setEmail(userEmail)}
                     placeholder="E - mail"
                     style={styles.inputBox}
             />
@@ -48,6 +54,7 @@ const LoginScreen = ({navigation}) => {
                <TextInput
                     value={password}
                     onChangeText={setPassword}
+                    // onChangeText={(userPassword) => setPassword(userPassword)}
                     placeholder="Password"
                     secureTextEntry={true}
                     style={styles.inputBox}
@@ -55,7 +62,9 @@ const LoginScreen = ({navigation}) => {
             </View>
             
         <View style={{alignItems:'center'}}>
-            <Pressable onPress={onLoginPressed} style={styles.loginButton}>
+            <Pressable 
+            onPress={() => login(email, password)} 
+            style={styles.loginButton}>
                 <Text style={styles.loginButtonText}>เข้าสู่ระบบ / Login</Text>
             </Pressable>
         </View>
@@ -81,7 +90,7 @@ const LoginScreen = ({navigation}) => {
         </View>
             
 
-        </View>
+        </ScrollView>
     );
 };
 

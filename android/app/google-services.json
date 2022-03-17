@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "750060484394",
+    "project_id": "sf342-mocapp",
+    "storage_bucket": "sf342-mocapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:750060484394:android:3f04e0cda7b4da2b9d1053",
+        "android_client_info": {
+          "package_name": "com.mocapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "750060484394-55f5npl7nqu8j5ir10j3cmlsedsa08pp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUEknvQzKQ3gM6eDjIfzdCesBZc3gO3Fk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "750060484394-55f5npl7nqu8j5ir10j3cmlsedsa08pp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

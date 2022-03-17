@@ -8,15 +8,22 @@ import {
   View,
   Image,
 } from 'react-native';
+import { AuthContext } from '../navigation/AuthProvider';
 
 
 
 const HomeScreen = ({navigation}) => {
+
+  const {logout} = useContext(AuthContext);
+
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+      {/* <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
         <Text>เข้าสู่ระบบ</Text>
+      </TouchableOpacity> */}
 
+      <TouchableOpacity onPress={() => logout()}>
+        <Text>ออกจากระบบ</Text>
       </TouchableOpacity>
 
       <View>

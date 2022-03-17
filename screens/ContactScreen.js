@@ -18,7 +18,7 @@ const ContactScreen = ({navigation}) => {
   
   return (
     
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.header}>
         <Text>
           Herder
@@ -132,7 +132,7 @@ const ContactScreen = ({navigation}) => {
      
 
     </View>
-    </View>
+    </ScrollView>
   );
 };
 
