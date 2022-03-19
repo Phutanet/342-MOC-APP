@@ -1,36 +1,33 @@
-import React, {useContext, useState} from 'react'
+import React, {useState} from 'react'
 import {View, Text, TouchableOpacity, StyleSheet, TextInput, Pressable} from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { AuthContext } from '../navigation/AuthProvider';
-
-
 const RegisterScreen = ({navigation}) => {
-    const [name, setName] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [password2, setPassword2] = useState();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [password2, setPassword2] = useState('');
 
-    const {register} = useContext(AuthContext);
+    const onRegisterPressed = () => {
+        console.warn('onRegisterPressed');
+    };
 
-    // const onRegisterPressed = () => {
-    //     console.warn('onRegisterPressed');
-    // };
-
-
+    const onBackToLoginPressed = () => {
+        console.warn('onBackToLoginPressed');
+    };
 
 
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Pressable >
-                    <View style={{padding:10}}>
-                        
-                            <MaterialCommunityIcons 
-                            onPress={() => navigation.navigate('LoginScreen')}
-                            name="chevron-left" size={40} color={'black'}/>
-                        
-                    </View>
-                </Pressable>
+                <View style={{backgroundColor:'white',width:40,paddingLeft:1,alignItems:'center'}}>
+                    <TouchableOpacity >   
+                        <MaterialCommunityIcons 
+                        onPress={() => navigation.navigate('LoginScreen')}
+                        name="chevron-left" size={40} color={'black'}/>
+                    </TouchableOpacity>
+                </View>
+                    
+        
             </View>
 
             <Text style={styles.textTopic}>ลงทะเบียน</Text>
@@ -81,9 +78,7 @@ const RegisterScreen = ({navigation}) => {
             </View>
             
             <View style={{alignItems:'center'}}>
-                <Pressable 
-                onPress={() => register(email, password)} 
-                style={styles.loginButton}>
+                <Pressable onPress={onRegisterPressed} style={styles.loginButton}>
                 <Text style={styles.loginButtonText}>ลงทะเบียน / Register</Text>
             </Pressable> 
             </View>
@@ -102,7 +97,9 @@ const styles = StyleSheet.create({
         backgroundColor:'white'
     },
     header:{
-        height:60
+        height:60,
+        padding:10,
+
     },
 
     inputBox: {
