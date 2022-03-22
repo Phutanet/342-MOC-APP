@@ -7,21 +7,14 @@ const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const { user, logout } = useContext(AuthContext);
-    console.log(user);
-
     const {login} = useContext(AuthContext);
 
-    const onLoginPressed = () => {
-        console.warn('onLoginPressed');
-    };
 
     const onForgotPasswordPressed = () => {
         console.warn('onForgotPasswordPressed');
     };
 
-    const onCreateAccountPressed = () => {
-        console.warn('onCreateAccountPressed');
-    };
+
 
     return (
         <ScrollView style={styles.container}>
