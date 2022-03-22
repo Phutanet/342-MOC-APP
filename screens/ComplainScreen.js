@@ -10,11 +10,14 @@ import {
   TextInput,
   Button,
   Pressable,
-  ScrollView
+  ScrollView,
+  Linking
 } from 'react-native';
 
 import ImagePicker from 'react-native-image-crop-picker';
+import { isSearchBarAvailableForCurrentPlatform } from 'react-native-screens';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
 const ComplainScreen = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -47,6 +50,7 @@ const ComplainScreen = ({navigation}) => {
 
     
     <ScrollView>
+
 
     <View style={styles.container}>
       <View style={styles.header}>
@@ -119,7 +123,8 @@ const ComplainScreen = ({navigation}) => {
      
   <View style={{alignItems:'center'}}>
     <Pressable 
-    onPress={onSubmitPressed}
+    // onPress={onSubmitPressed}
+    onPress={() => Linking.openURL(`mailto:webmaster@moc.go.th?subject=ร้องเรียนราคาสินค้าไม่เป็นธรรม&body=${petition}&attachments=${image}`)}
     style={styles.submitButton}>
         <Text 
         style={styles.submitButtonText}
@@ -128,6 +133,8 @@ const ComplainScreen = ({navigation}) => {
   </View>
       
       </View>
+
+
       </ScrollView>
   );
 };

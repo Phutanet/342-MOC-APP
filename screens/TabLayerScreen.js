@@ -35,6 +35,7 @@ function TabLayerScreen() {
       activeBackgroundColor: 'rgba(29, 59, 134, 1)',
       inactiveTintColor: '#000000',
       inactiveBackgroundColor: 'rgba(29, 59, 134, 1)',
+      keyboardHidesTabBar: true,
     }}
     >
       <Tab.Screen 
