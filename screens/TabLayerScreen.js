@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {useState , useContext} from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -21,20 +20,18 @@ function TabLayerScreen() {
     screenOptions={{ 
       headerShown: false, 
       tabBarStyle:{
-        height: 67,
+        height: 60,
       },
     }}
     tabBarOptions={{
       labelStyle: {
-        fontSize: 14,
+        fontSize: 15,
         paddingBottom: 10,
-        color: '#ffffff', //font label color
-        fontWeight: 'bold',
       },
-      activeTintColor: '#ffffff',
-      activeBackgroundColor: 'rgba(29, 59, 134, 1)',
-      inactiveTintColor: '#000000',
-      inactiveBackgroundColor: 'rgba(29, 59, 134, 1)',
+      activeTintColor: 'rgba(29, 59, 134, 1)',
+      activeBackgroundColor: 'rgba(168, 168, 168, 1)',
+      inactiveTintColor: 'rgba(30, 30, 30, 1)',
+      inactiveBackgroundColor: 'rgba(168, 168, 168, 1)',
       keyboardHidesTabBar: true,
     }}
     >
@@ -44,7 +41,7 @@ function TabLayerScreen() {
       options={{
         tabBarLabel: 'หน้าหลัก',
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="home" color={color} size={size} />
+          <MaterialCommunityIcons name="home" color={color} size={28} />
         ),
       }}/>
 
@@ -54,7 +51,7 @@ function TabLayerScreen() {
       options={{
         tabBarLabel: 'ดูราคาสินค้า',
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="chart-bar" color={color} size={size} />
+          <MaterialCommunityIcons name="chart-bar" color={color} size={28} />
         ),
       }}/>
 
@@ -64,7 +61,7 @@ function TabLayerScreen() {
       options={{
         tabBarLabel: 'ร้องเรียน',
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="file-document-edit-outline" color={color} size={size} />
+          <MaterialCommunityIcons name="file-document-edit-outline" color={color} size={28} />
         ),
       }}/>      
 
@@ -74,7 +71,7 @@ function TabLayerScreen() {
       options={{
         tabBarLabel: 'ติดต่อเรา',
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="information-variant" color={color} size={size} /> //contacts account-group
+          <MaterialCommunityIcons name="information-variant" color={color} size={28} /> //contacts account-group
         ),
       }}/>
 

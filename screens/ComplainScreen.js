@@ -1,29 +1,43 @@
 import * as React from 'react';
-import {useContext, useState, useEffect} from 'react';
+import {useState} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
   Image,
   TextInput,
-  Button,
   Pressable,
   ScrollView,
   Linking
 } from 'react-native';
 
 import ImagePicker from 'react-native-image-crop-picker';
-import { isSearchBarAvailableForCurrentPlatform } from 'react-native-screens';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
+import Header from './component/Header';
+
+
 const ComplainScreen = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [petition, setPetition] = useState('');
   const [image, setImage] = useState('');
 
+  const goToMail = () => {
+    Linking.openURL(`mailto:webmaster@moc.go.th?subject=ร้องเรียนราคาสินค้าไม่เป็นธรรม&body=${petition}`);
+  }
+
+  const clearData = () => {
+    setName('');
+    setEmail('');
+    setPetition('');
+    setImage('');
+  }
+
+  const onSubmitPressed = () => {
+    goToMail();
+    clearData();
+  }
 
   const choosePhotoFromLibrary = () => {
     ImagePicker.openPicker({
@@ -41,23 +55,10 @@ const ComplainScreen = ({navigation}) => {
     });
   };
 
-  const onSubmitPressed = () => {
-    console.warn('onSubmitPressed');
-  };
 
-  
   return (
-
-    
-    <ScrollView>
-
-
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>
-          Herder
-        </Text>
-      </View>
+    <ScrollView style={styles.container}>
+      <Header/>
       <Text style={styles.textTitle}>ร้องเรียนราคาสินค้าไม่เป็นธรรม</Text>
       <Text style={styles.textTopic}>ชื่อผู้ร้องเรียน</Text>
     <View style={styles.boxInput}>
@@ -123,8 +124,7 @@ const ComplainScreen = ({navigation}) => {
      
   <View style={{alignItems:'center'}}>
     <Pressable 
-    // onPress={onSubmitPressed}
-    onPress={() => Linking.openURL(`mailto:webmaster@moc.go.th?subject=ร้องเรียนราคาสินค้าไม่เป็นธรรม&body=${petition}&attachments=${image}`)}
+    onPress={onSubmitPressed}
     style={styles.submitButton}>
         <Text 
         style={styles.submitButtonText}
@@ -132,28 +132,14 @@ const ComplainScreen = ({navigation}) => {
       </Pressable>
   </View>
       
-      </View>
-
 
       </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    backgroundColor:'white'
-  },
-  header:{
-    width:'100%',
-    height:50,
-    backgroundColor:'blue',
-    justifyContent:'center',
-    alignItems:'center',
-  },
-    root: {
-      alignItems: 'center',
-      padding: 20,
+    container:{
+      flex:1,
     },
 
     inputBox: {
@@ -173,7 +159,7 @@ const styles = StyleSheet.create({
     },
 
     submitButton: {
-      backgroundColor: '#0000cd',
+      backgroundColor: 'rgba(29, 59, 134, 1)',
       width: '25%',
       padding: 10,
       marginVertical: 10,

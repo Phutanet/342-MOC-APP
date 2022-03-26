@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react'
-import {View, Text, TouchableOpacity, StyleSheet, TextInput, Pressable} from 'react-native'
+import {View, Text, TouchableOpacity, StyleSheet, TextInput, Pressable, ScrollView} from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { AuthContext } from '../navigation/AuthProvider';
 
@@ -12,6 +12,7 @@ const RegisterScreen = ({navigation}) => {
 
 
     return (
+        <ScrollView>
         <View style={styles.container}>
             <View style={styles.header}>
                 <View style={{backgroundColor:'white',width:40,paddingLeft:1,alignItems:'center'}}>
@@ -43,7 +44,7 @@ const RegisterScreen = ({navigation}) => {
                 <TextInput
                     value={email}
                     onChangeText={setEmail}
-                    placeholder="E - mail"
+                    placeholder="Email"
                     style={styles.inputBox}
                     />
             </View>
@@ -72,9 +73,9 @@ const RegisterScreen = ({navigation}) => {
             />
             </View>
             
-            <View style={{alignItems:'center'}}>
+            <View style={{alignItems:'center', paddingTop:24, paddingBottom:12}}>
                 <Pressable 
-                onPress={() => register(name, email, password, password2)} 
+                onPress={() => register(email, password)}
                 style={styles.loginButton}>
                 <Text style={styles.loginButtonText}>ลงทะเบียน / Register</Text>
             </Pressable> 
@@ -85,6 +86,7 @@ const RegisterScreen = ({navigation}) => {
 
 
         </View>
+        </ScrollView>
     );
 };
 
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
       },
     textTopic:{
         paddingLeft:20,
-        paddingBottom:30,
+        paddingBottom:12,
         fontSize:40,
         fontWeight:'bold',
         color:'black'
@@ -139,13 +141,15 @@ const styles = StyleSheet.create({
         paddingLeft:30,
         fontSize:18,
         fontWeight:'bold',
-        padding:10
+        padding:10,
+        paddingTop: 24,
+        paddingBottom: 12,
       },
       boxInput:{
         alignItems:'center',
       },
       loginButton: {
-        backgroundColor: '#0000cd',
+        backgroundColor: 'rgba(29, 59, 134, 1)',
         width: '40%',
         padding: 10,
         marginVertical: 25,

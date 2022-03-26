@@ -35,7 +35,7 @@ const LoginScreen = ({navigation}) => {
                     value={email}
                     onChangeText={setEmail}
                     // onChangeText={(userEmail) => setEmail(userEmail)}
-                    placeholder="E - mail"
+                    placeholder="Email "
                     style={styles.inputBox}
             />
             </View>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
       },
 
     loginButton: {
-        backgroundColor: '#0000cd',
+        backgroundColor: 'rgba(29, 59, 134, 1)',
         width: '40%',
         padding: 10,
         marginVertical: 25,

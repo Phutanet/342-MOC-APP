@@ -1,29 +1,27 @@
 import * as React from 'react';
 import {useContext, useState, useEffect} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Image,
   Linking,
   ScrollView,
+  Image,
 } from 'react-native';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Header from './component/Header';
+
 
 const ContactScreen = ({navigation}) => {
   const callcenterNumber = '025077000'
-  
+
   return (
-    
     <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Text>
-          Herder
-        </Text>
-      </View>
+
+      <Header/>
+
       <View style={styles.cardContract}>
       <View style={styles.card}>
         <TouchableOpacity 
@@ -139,16 +137,8 @@ const ContactScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
   },
-  header:{
-    width:'100%',
-    height:50,
-    backgroundColor:'blue',
-    justifyContent:'center',
-    alignItems:'center',
-  },
-  cardContract:{
+  cardContract: {
     backgroundColor:'white',
     width:'100%',
     alignItems:'center',
@@ -156,18 +146,18 @@ const styles = StyleSheet.create({
 
   },
 
-  buttonLink:{
+  buttonLink: {
     borderRadius: 5,
   },
 
-  textOnButtonLink:{
+  textOnButtonLink: {
     fontSize: 20,
     fontWeight: '400',
     color: '#000000',
     paddingLeft:10,
     paddingRight:70
   },
-  card:{
+  card: {
     width:'70%',
     height:50,
     borderRadius:6,
@@ -182,25 +172,25 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#a9a9a9",
   },
- cardContent:{
+ cardContent: {
    marginHorizontal:10,
    marginVertical:10,
    flexDirection:'row',
   marginTop:10
  },
- icon_facebook:{
+ icon_facebook: {
   paddingLeft:12
  },
- icon_call:{
+ icon_call: {
   paddingLeft:4
  },
- icon_web:{
+ icon_web: {
   paddingLeft:27
  },
- icon_mail:{
+ icon_mail: {
   paddingLeft:49
  },
- icon_location:{
+ icon_location: {
   paddingLeft:20
  }
 });

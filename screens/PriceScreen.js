@@ -10,6 +10,8 @@ import {
   ScrollView,
   FlatList,
 } from 'react-native';
+import Header from './component/Header';
+
 
 const productList = [
                       {id: '1', name: "เนื้อสัตว์"},
@@ -40,13 +42,9 @@ const renderItem = ({ item }) => (
 const PriceScreen = ({navigation}) => {
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text>
-            Header
-          </Text>
-        </View>
+    <ScrollView style={styles.container}>
+      <Header/>
+
         <Text style={styles.textTitle}>ราคาสินค้าอุปโภคบริโภค/{"\n"}สินค้าเกษตร</Text>
 
         <FlatList
@@ -55,7 +53,6 @@ const PriceScreen = ({navigation}) => {
           renderItem={renderItem}
         />
 
-      </View>
     </ScrollView>  
   );
 };
@@ -63,14 +60,6 @@ const PriceScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'white',
-  },
-  header:{
-    width:'100%',
-    height:50,
-    backgroundColor:'blue',
-    justifyContent:'center',
-    alignItems:'center',
   },
   textTitle:{
     fontSize:25,
