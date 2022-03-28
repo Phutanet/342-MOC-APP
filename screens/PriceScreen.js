@@ -12,38 +12,78 @@ import {
 } from 'react-native';
 import Header from './component/Header';
 
-
-const productList = [
-                      {id: '1', name: "เนื้อสัตว์", image: require("./image/product/product1.jpg")},
-                      {id: '2', name: "สัตว์น้ำ", image: require("./image/product/product2.jpg")}, 
-                      {id: '3', name: "ผลไม้", image: require("./image/product/product3.jpg")}, 
-                      {id: '4', name: "ผักสด", image: require("./image/product/product4.jpg")},
-                      {id: '5', name: "พืชอาหาร", image: require("./image/product/product5.jpg")},
-                      {id: '6', name: "พืชน้ำมันและน้ำมันพืช", image: require("./image/product/product6.jpg")}
-                    ]
-
-const Item = ({ name, image }) => (
-
-  <TouchableOpacity 
-    style={styles.item}
-    onPress={{}}
-  >
-    <View style={styles.imageView}>
-      <Image
-        style={styles.image}
-        source={image}
-      />
-    </View>
-    
-    <Text style={styles.itemName}>{name}</Text>
-
-  </TouchableOpacity>
-);
-const renderItem = ({ item }) => (
-  <Item name={item.name} image={item.image} />
-);
-
 const PriceScreen = ({navigation}) => {
+
+  const enterDataScreen = (name) => {
+    navigation.navigate("ProductDataScreen", {
+      name,
+    })
+  }
+
+  const productList = [
+    {
+      id: '1', 
+      data: {
+        name: "เนื้อสัตว์",
+        image: require("./image/product/product1.jpg")
+      }
+    },
+    {
+      id: '2', 
+      data: {
+        name: "สัตว์น้ำ", 
+        image: require("./image/product/product2.jpg")
+      }
+    }, 
+    {
+      id: '3', 
+      data: {
+        name: "ผลไม้", 
+        image: require("./image/product/product3.jpg")
+      }
+    }, 
+    {
+      id: '4', 
+      data: {
+        name: "ผักสด", 
+        image: require("./image/product/product4.jpg")
+      }
+    },
+    {
+      id: '5', 
+      data: {
+        name: "พืชอาหาร", 
+        image: require("./image/product/product5.jpg")
+      }
+    },
+    {
+      id: '6', 
+      data: {
+        name: "พืชน้ำมันและน้ำมันพืช", 
+        image: require("./image/product/product6.jpg")
+      }
+    },
+  ]
+
+  const Item = ({ name, image }) => (
+
+    <TouchableOpacity 
+      style={styles.item}
+      onPress={() => {enterDataScreen(name)}}
+    >
+      <View style={styles.imageView}>
+        <Image
+          style={styles.image}
+          source={image}
+        />
+      </View>
+      <Text style={styles.itemName}>{name}</Text>
+    </TouchableOpacity>
+  );
+
+  const renderItem = ({ item }) => (
+    <Item name={item.data.name} image={item.data.image} />
+  );
 
   return (
     <ScrollView style={styles.container}>
@@ -101,6 +141,14 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     borderColor: "#999999",
     borderWidth: 2
+  },
+  listView: {
+    backgroundColor: 'black',
+    height: 100,
+    width: "100%",
+    position: 'absolute',
+    marginTop: 60
+
   }
 
 });
