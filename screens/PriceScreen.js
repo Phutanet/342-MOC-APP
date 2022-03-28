@@ -14,9 +14,10 @@ import Header from './component/Header';
 
 const PriceScreen = ({navigation}) => {
 
-  const enterDataScreen = (name) => {
+  const enterDataScreen = (name, coverImage) => {
     navigation.navigate("ProductDataScreen", {
       name,
+      coverImage,
     })
   }
 
@@ -25,51 +26,57 @@ const PriceScreen = ({navigation}) => {
       id: '1', 
       data: {
         name: "เนื้อสัตว์",
-        image: require("./image/product/product1.jpg")
+        image: require("./image/product/product1.jpg"),
+        coverImage: require("./image/product/cover/productCover_placeholder.png"),
       }
     },
     {
       id: '2', 
       data: {
         name: "สัตว์น้ำ", 
-        image: require("./image/product/product2.jpg")
+        image: require("./image/product/product2.jpg"),
+        coverImage: require("./image/product/cover/productCover_placeholder.png"),
       }
     }, 
     {
       id: '3', 
       data: {
         name: "ผลไม้", 
-        image: require("./image/product/product3.jpg")
+        image: require("./image/product/product3.jpg"),
+        coverImage: require("./image/product/cover/productCover_placeholder.png"),
       }
     }, 
     {
       id: '4', 
       data: {
         name: "ผักสด", 
-        image: require("./image/product/product4.jpg")
+        image: require("./image/product/product4.jpg"),
+        coverImage: require("./image/product/cover/productCover_placeholder.png"),
       }
     },
     {
       id: '5', 
       data: {
         name: "พืชอาหาร", 
-        image: require("./image/product/product5.jpg")
+        image: require("./image/product/product5.jpg"),
+        coverImage: require("./image/product/cover/productCover_placeholder.png"),
       }
     },
     {
       id: '6', 
       data: {
         name: "พืชน้ำมันและน้ำมันพืช", 
-        image: require("./image/product/product6.jpg")
+        image: require("./image/product/product6.jpg"),
+        coverImage: require("./image/product/cover/productCover_placeholder.png"),
       }
     },
   ]
 
-  const Item = ({ name, image }) => (
+  const Item = ({ name, image, coverImage }) => (
 
     <TouchableOpacity 
       style={styles.item}
-      onPress={() => {enterDataScreen(name)}}
+      onPress={() => {enterDataScreen(name, coverImage)}}
     >
       <View style={styles.imageView}>
         <Image
@@ -82,7 +89,11 @@ const PriceScreen = ({navigation}) => {
   );
 
   const renderItem = ({ item }) => (
-    <Item name={item.data.name} image={item.data.image} />
+    <Item 
+      name={item.data.name} 
+      image={item.data.image} 
+      coverImage={item.data.coverImage}
+    />
   );
 
   return (
@@ -105,7 +116,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  textTitle:{
+  textTitle: {
     fontSize:25,
     fontWeight:'bold',
     textAlign:'left',
