@@ -14,29 +14,33 @@ import Header from './component/Header';
 
 
 const productList = [
-                      {id: '1', name: "เนื้อสัตว์"},
-                      {id: '2', name: "สัตว์น้ำ"}, 
-                      {id: '3', name: "ผลไม้"}, 
-                      {id: '4', name: "ผักสด"},
-                      {id: '5', name: "พืชอาหาร"},
-                      {id: '6', name: "พืชน้ำมันและน้ำมันพืช"}
+                      {id: '1', name: "เนื้อสัตว์", image: require("./image/product/product1.jpg")},
+                      {id: '2', name: "สัตว์น้ำ", image: require("./image/product/product2.jpg")}, 
+                      {id: '3', name: "ผลไม้", image: require("./image/product/product3.jpg")}, 
+                      {id: '4', name: "ผักสด", image: require("./image/product/product4.jpg")},
+                      {id: '5', name: "พืชอาหาร", image: require("./image/product/product5.jpg")},
+                      {id: '6', name: "พืชน้ำมันและน้ำมันพืช", image: require("./image/product/product6.jpg")}
                     ]
 
-const Item = ({ name }) => (
-  <View style={styles.item}>
-    <View style={{alignItems:'center'}}>
+const Item = ({ name, image }) => (
+
+  <TouchableOpacity 
+    style={styles.item}
+    onPress={{}}
+  >
+    <View style={styles.imageView}>
       <Image
-        styles={styles.itemImage}
-        source={require("./image/productPlaceholder.png")}
+        style={styles.image}
+        source={image}
       />
     </View>
     
     <Text style={styles.itemName}>{name}</Text>
 
-  </View>
+  </TouchableOpacity>
 );
 const renderItem = ({ item }) => (
-  <Item name={item.name} />
+  <Item name={item.name} image={item.image} />
 );
 
 const PriceScreen = ({navigation}) => {
@@ -75,24 +79,28 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   item: {
-    backgroundColor: '#DDDFDD',
+    backgroundColor: '#DDDDDD',
     borderRadius: 25,
     borderWidth: 1,
-    margin: 15,
-    width: 140,
-    height: 140,
+    margin: 12,
+    width: 170,
+    height: 170,
   },
   itemName: {
-    fontSize:15,
+    fontSize:16,
     fontWeight:'bold',
     padding:10,
-    paddingBottom:13,
     position: 'absolute',
     bottom:0,
   },
-  itemImage: {
-    resizeMode:'contain',
-
+  imageView: {
+    alignItems: 'center',
+    paddingTop: 5,
+  },
+  image: {
+    borderRadius: 100,
+    borderColor: "#999999",
+    borderWidth: 2
   }
 
 });
