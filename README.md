@@ -6,6 +6,7 @@
     npm install firebase
     npm install --save @react-native-firebase/app
     npm install @react-native-firebase/auth
+    npm install react-native-table-component
     
 ## Run Project
     npx react-native run-android
