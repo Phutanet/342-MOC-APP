@@ -1,4 +1,6 @@
 import * as React from 'react';
+import News from './component/News';
+import Header from './component/Header';
 import {useContext, useState, useEffect} from 'react';
 import {
   SafeAreaView,
@@ -8,7 +10,6 @@ import {
   View,
   ScrollView,
 } from 'react-native';
-import Header from './component/Header';
 
 
 
@@ -19,6 +20,7 @@ const HomeScreen = ({navigation}) => {
       <Header/>
       <View>
         <Text>THIS IS Home PAGE</Text>
+        <News/>
       </View>
 
     </ScrollView>
