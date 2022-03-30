@@ -1,19 +1,35 @@
 import React, {useContext, useState} from 'react'
-import {View, Text, Image, StyleSheet, TextInput, Pressable, ScrollView} from 'react-native'
+import {View, Text, Image, StyleSheet, TextInput, Pressable, ScrollView, Alert} from 'react-native'
 import { AuthContext } from '../navigation/AuthProvider';
 
 
 const LoginScreen = ({navigation}) => {
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const { user, logout } = useContext(AuthContext);
     const {login} = useContext(AuthContext);
 
+    const isValidForm = () => {
+        //CHECK : All fields have value
+        if (email === '')
+            return Alert.alert('กรุณาใส่ข้อมูลในช่องอีเมล', 'Please enter your Email address.');
+
+        if (password === '')
+            return Alert.alert('กรุณาใส่ข้อมูลในช่องรหัสผ่าน', 'Please enter your Password.');
+
+
+        return true;
+    };
+
+    const submitForm = () => {
+        if(isValidForm()){
+            login(email, password)
+        };
+    };
 
     const onForgotPasswordPressed = () => {
         console.warn('onForgotPasswordPressed');
     };
-
 
 
     return (
@@ -54,9 +70,17 @@ const LoginScreen = ({navigation}) => {
                     /> 
             </View>
             
-        <View style={{alignItems:'center'}}>
+        {/* <View style={{alignItems:'center'}}>
             <Pressable 
             onPress={() => login(email, password)} 
+            style={styles.loginButton}>
+                <Text style={styles.loginButtonText}>เข้าสู่ระบบ / Login</Text>
+            </Pressable>
+        </View> */}
+
+        <View style={{alignItems:'center'}}>
+            <Pressable 
+            onPress={submitForm} 
             style={styles.loginButton}>
                 <Text style={styles.loginButtonText}>เข้าสู่ระบบ / Login</Text>
             </Pressable>
@@ -64,8 +88,6 @@ const LoginScreen = ({navigation}) => {
 
 
         
-
-
         <View style={styles.footer}>
             <Pressable onPress={onForgotPasswordPressed}>
                 <Text style={styles.forgotPasswordButtonText}>ลืมรหัสผ่าน / Forgot Password?</Text>

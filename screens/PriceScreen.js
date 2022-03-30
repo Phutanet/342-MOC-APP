@@ -27,7 +27,7 @@ const PriceScreen = ({navigation}) => {
       data: {
         name: "เนื้อสัตว์",
         image: require("./image/product/product1.jpg"),
-        coverImage: require("./image/product/cover/productCover_placeholder.png"),
+        coverImage: require("./image/product/cover/productBanner1.jpg"),
       }
     },
     {
@@ -35,7 +35,7 @@ const PriceScreen = ({navigation}) => {
       data: {
         name: "สัตว์น้ำ", 
         image: require("./image/product/product2.jpg"),
-        coverImage: require("./image/product/cover/productCover_placeholder.png"),
+        coverImage: require("./image/product/cover/productBanner2.jpg"),
       }
     }, 
     {
@@ -43,7 +43,7 @@ const PriceScreen = ({navigation}) => {
       data: {
         name: "ผลไม้", 
         image: require("./image/product/product3.jpg"),
-        coverImage: require("./image/product/cover/productCover_placeholder.png"),
+        coverImage: require("./image/product/cover/productBanner3.jpg"),
       }
     }, 
     {
@@ -51,7 +51,7 @@ const PriceScreen = ({navigation}) => {
       data: {
         name: "ผักสด", 
         image: require("./image/product/product4.jpg"),
-        coverImage: require("./image/product/cover/productCover_placeholder.png"),
+        coverImage: require("./image/product/cover/productBanner4.jpg"),
       }
     },
     {
@@ -59,7 +59,7 @@ const PriceScreen = ({navigation}) => {
       data: {
         name: "พืชอาหาร", 
         image: require("./image/product/product5.jpg"),
-        coverImage: require("./image/product/cover/productCover_placeholder.png"),
+        coverImage: require("./image/product/cover/productBanner5.jpg"),
       }
     },
     {
@@ -67,7 +67,7 @@ const PriceScreen = ({navigation}) => {
       data: {
         name: "พืชน้ำมันและน้ำมันพืช", 
         image: require("./image/product/product6.jpg"),
-        coverImage: require("./image/product/cover/productCover_placeholder.png"),
+        coverImage: require("./image/product/cover/productBanner6.jpg"),
       }
     },
   ]

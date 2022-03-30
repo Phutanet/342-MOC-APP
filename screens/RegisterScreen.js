@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react'
-import {View, Text, TouchableOpacity, StyleSheet, TextInput, Pressable, ScrollView} from 'react-native'
+import {View, Text, TouchableOpacity, StyleSheet, TextInput, Pressable, ScrollView, Alert} from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { AuthContext } from '../navigation/AuthProvider';
 
@@ -7,8 +7,35 @@ const RegisterScreen = ({navigation}) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [password2, setPassword2] = useState('');
+    const [password2, setPassword2] = useState(''); //Confirm Password Variable
     const {register} = useContext(AuthContext);
+
+    const isValidForm = () => {
+        //CHECK1 : All fields have value
+        if (name === '')
+            return Alert.alert('กรุณาใส่ข้อมูลในช่องชื่อและนามสกุล', 'Please enter your First and Last name.');
+
+        if (email === '')
+            return Alert.alert('กรุณาใส่ข้อมูลในช่องอีเมล', 'Please enter your Email address.');
+
+        if (password === '')
+            return Alert.alert('กรุณาใส่ข้อมูลในช่องรหัสผ่าน', 'Please enter your Password.');
+
+        if (password2 === '')
+            return Alert.alert('กรุณาใส่ข้อมูลในช่องยืนยันรหัสผ่าน', 'Please enter your Confirm Password.');
+
+        //CHECK2 : password and password2 must be the same
+        if (password !== password2)
+            return Alert.alert('กรุณาตรวจสอบการยืนยันรหัสผ่านอีกครั้ง', 'Password and Confirm Password not match.');
+
+        return true;
+    };
+
+    const submitForm = () => {
+        if(isValidForm()){
+            register(email, password)
+        };
+    };
 
 
     return (
@@ -73,18 +100,16 @@ const RegisterScreen = ({navigation}) => {
             />
             </View>
             
+
             <View style={{alignItems:'center', paddingTop:24, paddingBottom:12}}>
                 <Pressable 
-                onPress={() => register(email, password)}
+                onPress={submitForm}
                 style={styles.loginButton}>
                 <Text style={styles.loginButtonText}>ลงทะเบียน / Register</Text>
             </Pressable> 
             </View>
            
             
-
-
-
         </View>
         </ScrollView>
     );
