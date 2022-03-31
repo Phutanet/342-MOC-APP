@@ -1,3 +1,4 @@
+import { DrawerItemList } from '@react-navigation/drawer';
 import * as React from 'react';
 import {useContext, useState, useEffect} from 'react';
 import {
@@ -20,17 +21,13 @@ const ProductDataScreen = ({navigation, route}) => {
         {
             tableHead: ['ลำดับ', 'รายการ', 'ราคา\n(สูงสุด-ต่ำสุด)\nเฉลี่ย', 'ราคาเฉลี่ย', 'หน่วย'],
             tableData: [
-                [1, leftAlign("เนื้อหมู"), "30.00 - 35.00", "32.50", "บาท/กก."],
-                [2, leftAlign("เนื้อวัว"), "60.00 - 65.00", "62.50", "บาท/กก."],
+            //     [1, leftAlign("เนื้อหมู"), "30.00 - 35.00", "32.50", "บาท/กก."],
+            //     [2, leftAlign("เนื้อวัว"), "60.00 - 65.00", "62.50", "บาท/กก."],
             ]
         }  
     )
 
-    const [productData, setProductData] = useState(
-        {
-            test: "test"
-        }
-    )
+    const [list, setList] = useState([]);
 
     function leftAlign(value) {
         return (
@@ -46,24 +43,46 @@ const ProductDataScreen = ({navigation, route}) => {
         setTable({tableHead: [...table.tableHead], tableData: newArr});
     }
 
-    useEffect(() => {
-        getProductData("P11001","2022-03-29","2022-03-29")
-            .then(items => {
-                setProductData({test: items.unit})
-            })
+    // useEffect(() => {
+    //     // getProductData("P11001","2022-03-29","2022-03-29")
+    //     //     .then(items => {
+    //     //         setProductData(items)
+    //     //     })
         
-        const data = [];
-        for (let i=0; i<10; i++) {
-            // const rowData = [];
-            // for (let j=0; j<5; j++) {
-            //     rowData.push(i);
-            // }
-            const rowData = [i,leftAlign(i),i,i,i];
-            data.push(rowData);
-        }
-        addTableData(data);
+    //     const data = [];
+    //     for (let i=11001; i<=11002; i++) {
+    //         const productId = "P"+i;
+    //         const list = getProductData(productId)
+
+    //         const rowData = [i,leftAlign(list.product_name),i,i,list.unit];
+    //         data.push(rowData);
+    //     }
+    //     addTableData(data);
+    // }, [])
+
+    useEffect(() => {
+        let mounted = true;
+            getProductData("P11001")
+            .then(items => {
+                if (mounted) {
+                    setList(items)
+                    const min = items.price_min_avg;
+                    const max = items.price_max_avg;
+                    addTableData([[1,
+                        leftAlign(items.product_name),
+                        min+" - "+max,
+                        (max+min)/2,
+                        items.unit
+                    ]])
+                }
+            })
+        return () => mounted = false;
     }, [])
     
+    function addProduct(id) {
+       
+    }
+
     return (
         <View style={styles.container}>
             <Header/>
@@ -72,7 +91,7 @@ const ProductDataScreen = ({navigation, route}) => {
                 <Image
                     source={route.params.coverImage}
                 />
-                <Text style={styles.textTitle}>{route.params.name} {productData.test}</Text>
+                <Text style={styles.textTitle}>{route.params.name}</Text>
             
             </View>
 

@@ -14,8 +14,9 @@ import Header from './component/Header';
 
 const PriceScreen = ({navigation}) => {
 
-  const enterDataScreen = (name, coverImage) => {
+  const enterDataScreen = (id, name, coverImage) => {
     navigation.navigate("ProductDataScreen", {
+      id,
       name,
       coverImage,
     })
@@ -23,7 +24,16 @@ const PriceScreen = ({navigation}) => {
 
   const productList = [
     {
-      id: '1', 
+      id: {
+        pId: {
+          start: 11001,
+          end: 11045
+        },
+        wID: {
+          start: 11001,
+          end: 11045
+        }
+      },
       data: {
         name: "เนื้อสัตว์",
         image: require("./image/product/product1.jpg"),
@@ -72,11 +82,11 @@ const PriceScreen = ({navigation}) => {
     },
   ]
 
-  const Item = ({ name, image, coverImage }) => (
+  const Item = ({ id, name, image, coverImage }) => (
 
     <TouchableOpacity 
       style={styles.item}
-      onPress={() => {enterDataScreen(name, coverImage)}}
+      onPress={() => {enterDataScreen(id, name, coverImage)}}
     >
       <View style={styles.imageView}>
         <Image
@@ -90,6 +100,7 @@ const PriceScreen = ({navigation}) => {
 
   const renderItem = ({ item }) => (
     <Item 
+      id={item.data.id}
       name={item.data.name} 
       image={item.data.image} 
       coverImage={item.data.coverImage}
