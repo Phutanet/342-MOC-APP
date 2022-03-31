@@ -36,12 +36,13 @@ export default class News extends React.Component {
                 </View>
             )
         }
+
         else {
-            { customData.map((data) =>{
-                return (
-                    <View>
-                        <View style={styles.newsContainer}>
-                        
+            return (
+                <View>
+                    { customData.map((data) =>{
+                        return(
+                            <View style={styles.newsContainer}>
                                 <Text style={styles.title}>
                                     {customData.title}
                                 </Text>
@@ -51,30 +52,29 @@ export default class News extends React.Component {
                                 <Text style={styles.newsDescription}>
                                     {customData.datetime}
                                 </Text>
+                                <Text style={styles.title}>
+                                    {this.state.dataSource[1].id}
+                                </Text>
+                                <Text style={styles.date}>
+                                    {this.state.dataSource[1].name_th}
+                                </Text>
+                                <Text style={styles.newsDescription}>
+                                    {this.state.dataSource[1].name_en}
+                                </Text>
 
-                            <Text style={styles.title}>
-                                {this.state.dataSource[1].id}
-                            </Text>
-                            <Text style={styles.date}>
-                                {this.state.dataSource[1].name_th}
-                            </Text>
-                            <Text style={styles.newsDescription}>
-                                {this.state.dataSource[1].name_en}
-                            </Text>
-
-                            <Text style={styles.title}>
-                                {this.state.dataSource[2].id}
-                            </Text>
-                            <Text style={styles.date}>
-                                {this.state.dataSource[2].name_th}
-                            </Text>
-                            <Text style={styles.newsDescription}>
-                                {this.state.dataSource[2].name_en}
-                            </Text>
-                        </View>
-                    </View>
-                );
-            }
+                                <Text style={styles.title}>
+                                    {this.state.dataSource[2].id}
+                                </Text>
+                                <Text style={styles.date}>
+                                    {this.state.dataSource[2].name_th}
+                                </Text>
+                                <Text style={styles.newsDescription}>
+                                    {this.state.dataSource[2].name_en}
+                                </Text>
+                            </View>
+                        )})}
+                </View>
+            );
         }
     }
 }
