@@ -7,21 +7,26 @@ import {
   View,
   Linking,
   ScrollView,
-  Image,
+  ImageBackground,
+  SafeAreaView,
+  StatusBar
 } from 'react-native';
-
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Header from './component/Header';
 
 
 const ContactScreen = ({navigation}) => {
-  const callcenterNumber = '025077000'
-
+  const callcenterNumber = '025077000';
   return (
     <ScrollView style={styles.container}>
 
-      <Header/>
-
+      <View >
+          <Header/>
+            <ImageBackground source={{uri:'https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg'}} resizeMode="cover" style={styles.image}>
+              <Text style={styles.textHeader}>ติดต่อเรา</Text>
+          </ImageBackground>
+        </View>
+      <View style={{alignItems:'center',flexDirection:'column',backgroundColor: 'rgba(52, 52, 52,1)'}}>
       <View style={styles.cardContract}>
       <View style={styles.card}>
         <TouchableOpacity 
@@ -130,19 +135,25 @@ const ContactScreen = ({navigation}) => {
      
 
     </View>
+    </View>
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
   },
   cardContract: {
+    alignItems:'center',
     backgroundColor:'white',
     width:'100%',
-    alignItems:'center',
-    paddingTop:230,
+    borderRadius:20,
+    paddingTop:50,
+    paddingBottom:60
+
+
+
+
 
   },
 
@@ -192,6 +203,15 @@ const styles = StyleSheet.create({
  },
  icon_location: {
   paddingLeft:20
+ },
+ image:{
+   height:150
+ },
+ textHeader:{
+   color:'white',
+   fontSize:35,
+   paddingTop:85,
+   paddingLeft:30
  }
 });
 

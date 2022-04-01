@@ -22,6 +22,8 @@ const ComplainScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [petition, setPetition] = useState('');
   const [image, setImage] = useState('');
+  const [width1, setWidth] = useState(0)
+  const [height1, setHeight] = useState(0)
 
   const goToMail = () => {
     Linking.openURL(`mailto:webmaster@moc.go.th?subject=ร้องเรียนราคาสินค้าไม่เป็นธรรม&body=${petition}`);
@@ -32,6 +34,8 @@ const ComplainScreen = ({navigation}) => {
     setEmail('');
     setPetition('');
     setImage('');
+    setWidth(0)
+    setHeight(0)
   }
 
   const onSubmitPressed = () => {
@@ -40,21 +44,24 @@ const ComplainScreen = ({navigation}) => {
   }
 
   const choosePhotoFromLibrary = () => {
-    ImagePicker.openPicker({
-      width: 300,
-      height : 400,
+    setHeight(300),
+    setWidth(300),
+    ImagePicker.openPicker({  
       cropping: true,
       imageUpload: {
-        width: 10,
-        height: 10,
+        setHeight:0,
+        setWidth:0,
         borderRadius: 5,
       },
+      
     }).then(image => {
       console.log(image);
       setImage(image.path);
     });
+    
   };
-
+console.log(width1),
+    console.log(height1)
 
   return (
     <ScrollView style={styles.container}>
@@ -118,7 +125,7 @@ const ComplainScreen = ({navigation}) => {
     <View style={styles.cropImage}>
        <Image 
       source={{uri: image,}} 
-      style={styles.imageUpload}
+      style={{width:width1,height:height1}}
       />
     </View>
      
@@ -143,10 +150,10 @@ const styles = StyleSheet.create({
     },
 
     inputBox: {
-      backgroundColor: '#e8e8e8',
+      backgroundColor: '#dcdcdc',
       width: '80%',
       height:40,
-      borderColor: '#e8e8e8',
+      borderColor: 'black',
       borderRadius: 30,
       paddingHorizontal: 20,
       marginVertical: 5,
@@ -198,7 +205,7 @@ const styles = StyleSheet.create({
       paddingTop:10
     },
     inputBoxmultiline:{
-      backgroundColor:'#e8e8e8',
+      backgroundColor:'#dcdcdc',
       width: '80%',
       height:160,
       borderColor: '#e8e8e8',
