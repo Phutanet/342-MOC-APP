@@ -19,7 +19,6 @@ const HomeScreen = ({navigation}) => {
     <ScrollView style={styles.container}>
       <Header/>
       <View>
-        <Text>THIS IS Home PAGE</Text>
         <News/>
       </View>
 

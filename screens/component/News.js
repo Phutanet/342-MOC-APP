@@ -8,7 +8,7 @@ export default class News extends React.Component {
         return (
             <View>
                 <Image
-                style={styles.image}
+                style={styles.banner}
                 source={require('.././image/HomwBanner.jpg')}
             />
                 { customData.map((data) =>{
@@ -41,9 +41,15 @@ const styles = StyleSheet.create({
         fontSize: 14
     },
     image: { 
-        width: 300, 
-        height: 300, 
+        width: 350, 
+        height: 320, 
         marginLeft:'auto', 
-        marginRight:'auto' 
+        marginRight:'auto', 
+        marginTop:20,
+    },
+    banner: {
+        width: 450, 
+        height:140,
+        opacity: 0.8
     }
 });
