@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import customData from './JSON/news'
 
 export default class News extends React.Component {
@@ -42,7 +42,10 @@ export default class News extends React.Component {
                 <View>
                     { customData.map((data) =>{
                         return(
+                            <>
                             <Text>{data.title}</Text>
+                            <Image source = {{uri: data.photo }}style = {{ width: 300, height: 300, marginLeft:'auto', marginRight:'auto' }} />
+                            </>
                         )})}
                 </View>
             );
