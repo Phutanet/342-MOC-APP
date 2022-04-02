@@ -93,7 +93,7 @@ const LoginScreen = ({navigation}) => {
 
             <Text>ท่านยังไม่มีบัญชีใช่หรือไม่?</Text>
 
-            <Pressable onPress={() => navigation.navigate('RegisterScreen')}>
+            <Pressable onPress={() => navigation.navigate('RegisterScreen')}> 
                 <Text style={styles.createAccountButtonText}>สร้างบัญชีใหม่ / Create account</Text>
             </Pressable>
         </View>
