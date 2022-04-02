@@ -1,5 +1,5 @@
-import React, {useContext, useState} from 'react'
-import {View, Text, Image, StyleSheet, TextInput, Pressable, ScrollView, Alert} from 'react-native'
+import React, {useState, useContext, useEffect} from 'react';
+import {View, Text, Image, StyleSheet, TextInput, Pressable, ScrollView, Alert} from 'react-native';
 import { AuthContext } from '../navigation/AuthProvider';
 
 
@@ -70,13 +70,7 @@ const LoginScreen = ({navigation}) => {
                     /> 
             </View>
             
-        {/* <View style={{alignItems:'center'}}>
-            <Pressable 
-            onPress={() => login(email, password)} 
-            style={styles.loginButton}>
-                <Text style={styles.loginButtonText}>เข้าสู่ระบบ / Login</Text>
-            </Pressable>
-        </View> */}
+
 
         <View style={{alignItems:'center'}}>
             <Pressable 
