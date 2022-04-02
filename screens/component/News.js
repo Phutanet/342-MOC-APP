@@ -14,8 +14,11 @@ export default class News extends React.Component {
                 { customData.map((data) =>{
                     return(
                         <>
-                        <Text>{data.title}</Text>
-                        <Image source = {{uri: data.photo }}style = {styles.image} />
+                        <View>
+                            <Image source = {{uri: data.photo }}style = {styles.licon} />
+                            <Text>{data.title}</Text>
+                        </View>
+                        <Text></Text>
                         </>
                     )})}
             </View>
@@ -51,5 +54,9 @@ const styles = StyleSheet.create({
         width: 450, 
         height:140,
         opacity: 0.8
+    },
+    licon: {
+        width: 50, 
+        height:50,
     }
 });
