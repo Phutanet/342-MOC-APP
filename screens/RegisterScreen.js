@@ -7,13 +7,12 @@ import firestore from '@react-native-firebase/firestore';
 
 
 const RegisterScreen = ({navigation}) => {
-    const [uid, setUid] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState(''); //Confirm Password Variable
     const {register} = useContext(AuthContext);
-    const usersCollectionRef = firestore().collection('uid').doc(uid);
+    const usersCollectionRef = firestore().collection('users_info');
 
     const isValidForm = () => {
         //CHECK1 : All fields have value

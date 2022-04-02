@@ -27,18 +27,22 @@ const ComplainScreen = ({navigation}) => {
   const [width1, setWidth] = useState(0);
   const [height1, setHeight] = useState(0);
 
-  const {user} = useContext(AuthContext);
 
-  firestore()
-    .collection('users_info')
-    .get()
-    .then(collectionSnapshot => {
-      collectionSnapshot.forEach(documentSnapshot => {
-        if (documentSnapshot.data().Email === user.email)
-          setEmail(documentSnapshot.data().Email);
-        setName(documentSnapshot.data().Name);
-      });
-    });
+  //const {user} = useContext(AuthContext);
+  // firestore()
+  //   .collection('users_info')
+  //   .get()
+  //   .then(collectionSnapshot => {
+  //     collectionSnapshot.forEach(documentSnapshot => {
+  //       if (documentSnapshot.data().Email === user.email)
+  //         console.log("useState",name);
+  //         console.log("fireBase",documentSnapshot.data().Name);
+  //         console.log("COMPARE",typeof(documentSnapshot.data().Email),typeof(user.email));
+  //         setEmail(documentSnapshot.data().Email);
+  //         setName(documentSnapshot.data().Name);
+  //     });
+  //   });
+
 
   const goToMail = () => {
     Linking.openURL(
@@ -87,8 +91,8 @@ const ComplainScreen = ({navigation}) => {
       <View style={styles.boxInput}>
         <TextInput
           value={name}
-          //onChangeText={setName}
-          placeholder={name}
+          onChangeText={setName}
+          placeholder="ชื่อจริง-นามสกุล"
           style={styles.inputBox}
         />
       </View>
@@ -99,8 +103,8 @@ const ComplainScreen = ({navigation}) => {
         <TextInput
           style={styles.inputBox}
           value={email}
-          //onChangeText={setEmail}
-          placeholder={email}
+          onChangeText={setEmail}
+          placeholder="อีเมล"
         />
       </View>
 
