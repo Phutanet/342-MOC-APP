@@ -1,4 +1,4 @@
-export function getProductData(id) {
+function getProductData(id) {
 
     const date = {
       from_date: "2022-03-29",
@@ -14,4 +14,14 @@ export function getProductData(id) {
   
     return fetch(url)
       .then(data => data.json());
-  }
+}
+
+async function getProductList(category_name) {
+    const url = "https://dataapi.moc.go.th/gis-products"
+
+    return await fetch(url)
+      .then(data => data.json());
+}
+
+
+export {getProductData, getProductList}

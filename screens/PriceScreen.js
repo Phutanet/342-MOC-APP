@@ -24,16 +24,7 @@ const PriceScreen = ({navigation}) => {
 
   const productList = [
     {
-      id: {
-        pId: {
-          start: 11001,
-          end: 11045
-        },
-        wID: {
-          start: 11001,
-          end: 11045
-        }
-      },
+      id: '1',
       data: {
         name: "เนื้อสัตว์",
         image: require("./image/product/product1.jpg"),

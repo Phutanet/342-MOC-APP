@@ -12,9 +12,10 @@ import {
   FlatList,
   ActivityIndicator,
 } from 'react-native';
+import {Picker} from '@react-native-picker/picker';
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import Header from './component/Header';
-import { getProductData } from './services/productData'
+import { getProductData, getProductList } from './services/productData'
 
 const ProductDataScreen = ({navigation, route}) => {
     const [table,setTable] = useState(
@@ -29,10 +30,44 @@ const ProductDataScreen = ({navigation, route}) => {
 
     const [list, setList] = useState([]);
 
+    const [selectedType, setSelectedType] = useState();
+
+    const [productList, setProductList] = useState({
+        "1": "11",
+        "2": "22",
+        "3": "33",
+    });
+
     function leftAlign(value) {
         return (
           <Text style={{alignSelf: "flex-start", marginLeft: 5}}>{value}</Text>
         );
+    }
+
+    function setTableData(type) {
+        setSelectedType(type)
+        let mounted = true;
+        getProductList()
+        .then(items => {
+            if (mounted) {
+                const test = items[1].product_name
+                const test2 = items[2].product_name
+                const test3 = items[3].product_name
+
+                const newArr = {
+                    test: test,
+                    test2: test2,
+                    test3: test3,
+                }
+
+                // for (var i=1; i<items.length; i++) {
+                //     const data = items[i].product_name
+                //     newArr.i = data
+                // }
+
+                setProductList(newArr)
+            }
+        })
     }
 
     function addTableData(newData) {
@@ -43,40 +78,24 @@ const ProductDataScreen = ({navigation, route}) => {
         setTable({tableHead: [...table.tableHead], tableData: newArr});
     }
 
-    // useEffect(() => {
-    //     // getProductData("P11001","2022-03-29","2022-03-29")
-    //     //     .then(items => {
-    //     //         setProductData(items)
-    //     //     })
-        
-    //     const data = [];
-    //     for (let i=11001; i<=11002; i++) {
-    //         const productId = "P"+i;
-    //         const list = getProductData(productId)
-
-    //         const rowData = [i,leftAlign(list.product_name),i,i,list.unit];
-    //         data.push(rowData);
-    //     }
-    //     addTableData(data);
-    // }, [])
-
     useEffect(() => {
-        let mounted = true;
-            getProductData("P11001")
-            .then(items => {
-                if (mounted) {
-                    setList(items)
-                    const min = items.price_min_avg;
-                    const max = items.price_max_avg;
-                    addTableData([[1,
-                        leftAlign(items.product_name),
-                        min+" - "+max,
-                        (max+min)/2,
-                        items.unit
-                    ]])
-                }
-            })
-        return () => mounted = false;
+        // let mounted = true;
+        //     getProductData("P11001")
+        //     .then(items => {
+        //         if (mounted) {
+        //             setList(items)
+        //             const min = items.price_min_avg;
+        //             const max = items.price_max_avg;
+        //             addTableData([[
+        //                 1,
+        //                 leftAlign(items.product_name),
+        //                 min+" - "+max,
+        //                 (max+min)/2,
+        //                 items.unit
+        //             ]])
+        //         }
+        //     })
+        // return () => mounted = false;
     }, [])
     
     function addProduct(id) {
@@ -91,9 +110,47 @@ const ProductDataScreen = ({navigation, route}) => {
                 <Image
                     source={route.params.coverImage}
                 />
+
                 <Text style={styles.textTitle}>{route.params.name}</Text>
-            
+                <View style={styles.pickerContainer}>
+                    <Picker
+                        selectedValue={selectedType}
+                        mode={'dropdown'}
+                        style={styles.typePicker}
+                        dropdownIconColor="#fff"
+                        onValueChange={(itemValue, itemIndex) =>
+                            setTableData(itemValue)
+                        }
+                    >
+                        <Picker.Item label="ประเภท..." value="none" style={{color: '#bbb'}}/>
+                        <Picker.Item label="ขายปลีก" value="retail" style={styles.item}/>
+                        <Picker.Item label="ขายส่ง" value="wholesale" style={styles.item}/>
+                    </Picker>
+
+                    <Picker
+                        selectedValue={selectedType}
+                        mode={'dropdown'}
+                        style={styles.productPicker}
+                        dropdownIconColor="#fff"
+                        onValueChange={(itemValue, itemIndex) =>
+                            setSelectedLanguage(itemValue)
+                        }
+                    >
+                        <Picker.Item label="ชื่อสินค้า..." value="none" style={{color: '#bbb'}}/>
+                        {Object.keys(productList).map((key) => {
+                            return (
+                                <Picker.Item 
+                                    label={productList[key]}
+                                    value={key}
+                                    style={styles.item}
+                                />
+                            )
+                        })}
+                    </Picker>
+                </View>
             </View>
+
+
 
             <View style={styles.splitLine}>
                 <Text style={styles.splitLineText}>ราคา: {route.params.name}-/category_name/ (ข้อมูล ณ วันที่ /date/ )</Text>
@@ -144,13 +201,13 @@ const styles = StyleSheet.create({
     },
     titleContainer: {
         backgroundColor: 'gray',
-        width: "100%",
+        width: '100%',
         height: 140,
     },
     splitLine: {
         backgroundColor: 'rgba(29, 59, 134, 1)',
         padding: 4,
-        width: "100%",
+        width: '100%',
     },
     splitLineText: {
         color:'white',
@@ -159,7 +216,7 @@ const styles = StyleSheet.create({
     tableContainer: {
         flex: 1,  
         backgroundColor: '#fff',
-        width: "100%",
+        width: '100%',
     },
     tableHead: {
         height: 70, 
@@ -177,6 +234,28 @@ const styles = StyleSheet.create({
         borderBottomWidth: 3,
         borderBottomColor: '#DDDDDD',
     },
+    pickerContainer: {
+        position: 'absolute',
+        backgroundColor: '#00000000',
+        borderBottomWidth: 2.5,
+        borderBottomColor: '#fff',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        width: '100%',
+        height: 50,
+        bottom: 1,
+    },
+    typePicker: {
+        color: '#fff',
+        width: '35%',
+    },
+    productPicker: {
+        color: '#fff',
+        width: '65%',
+    },
+    item: {
+
+    }
 });
 
 export default ProductDataScreen;
