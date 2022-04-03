@@ -50,8 +50,9 @@ const ProductDataScreen = ({navigation, route}) => {
                 const newArr = {}
                 items.forEach(element => {
                     if (element.sell_type == type && element.category_name == route.params.name) {
-                        const data = element.product_name
-                        newArr[data] = data
+                        const key = element.product_id
+                        const name = element.product_name
+                        newArr[key] = name
                     }
                 })
 
@@ -64,11 +65,29 @@ const ProductDataScreen = ({navigation, route}) => {
     function setListData(data) {
         setSelectedProduct(data)
         let mounted = true;
-        getProductData(data.product_id)
+        getProductData(data)
         .then(items => {
             if (mounted) {
-
+                const newArr = []
+                items.price_list.forEach(element => {
+                    const min = element.price_min;
+                    const max = element.price_max;
+                    newArr.push([
+                        element.date,
+                        max+" - "+min,
+                        ((max+min)/2).toFixed(2),
+                        items.unit
+                    ])
+                    setTable({tableHead: [...table.tableHead], tableData: newArr.reverse()});
+                })
+                // setTable({
+                //     tableHead: ['วันที่', 'ราคา\nสูงสุด - ต่ำสุด', 'ราคาเฉลี่ย', 'หน่วย'],
+                //     tableData: [
+                //         [items.price_list[0].date, "30.00 - 35.00", "32.50", items.unit],
+                //     ]
+                // } )
             }
+        return () => mounted = false;
         })
     }
 
@@ -124,7 +143,7 @@ const ProductDataScreen = ({navigation, route}) => {
                             setItemData(itemValue)
                         }
                     >
-                        <Picker.Item label="ประเภท..." value="none" style={{}}/>
+                        <Picker.Item label="ประเภท..." style={{}}/>
                         <Picker.Item label="ขายปลีก" value="ขายปลีก" style={styles.item}/>
                         <Picker.Item label="ขายส่ง" value="ขายส่ง" style={styles.item}/>
                     </Picker>
@@ -135,10 +154,10 @@ const ProductDataScreen = ({navigation, route}) => {
                         style={styles.productPicker}
                         dropdownIconColor="#fff"
                         onValueChange={(itemValue, itemIndex) =>
-                            setSelectedLanguage(itemValue)
+                            setListData(itemValue)
                         }
                     >
-                        <Picker.Item label="  ชื่อสินค้า..." value="none" style={{}}/>
+                        <Picker.Item label="  ชื่อสินค้า..." style={{}}/>
                         {Object.keys(productList).map((key) => {
                             return (
                                 <Picker.Item 

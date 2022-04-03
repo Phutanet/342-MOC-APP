@@ -1,8 +1,8 @@
 function getProductData(id) {
 
     const date = {
-      from_date: "2022-03-29",
-      to_date: "2022-03-29",
+      from_date: "2022-03-04",
+      to_date: "2022-04-04",
     }
   
     const url = ("https://dataapi.moc.go.th/gis-product-prices?product_id="
