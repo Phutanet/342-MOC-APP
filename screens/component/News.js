@@ -14,11 +14,10 @@ export default class News extends React.Component {
                 { customData.map((data) =>{
                     return(
                         <>
-                        <View>
-                            <Image source = {{uri: data.photo }}style = {styles.licon} />
-                            <Text>{data.title}</Text>
+                        <View style = {styles.row}>
+                            <Image source={require('../image/docment-icon.png')} style = {styles.box1} />
+                            <Text style = {styles.box2} >{data.title}</Text>
                         </View>
-                        <Text></Text>
                         </>
                     )})}
             </View>
@@ -46,17 +45,31 @@ const styles = StyleSheet.create({
     image: { 
         width: 350, 
         height: 320, 
-        marginLeft:'auto', 
-        marginRight:'auto', 
-        marginTop:20,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     banner: {
         width: 450, 
         height:140,
         opacity: 0.8
     },
-    licon: {
-        width: 50, 
-        height:50,
-    }
+    box1: {
+        width: 45,
+        height: 47,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        alignItems: 'center',
+    },
+    box2: {
+        width: 290,
+        height: 'auto',
+    },
+    row: {
+        flex: 1,
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: 'space-between',
+        marginTop: 10,
+    },
+
 });
