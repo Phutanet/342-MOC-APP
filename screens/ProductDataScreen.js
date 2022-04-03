@@ -20,10 +20,9 @@ import { getProductData, getProductList } from './services/productData'
 const ProductDataScreen = ({navigation, route}) => {
     const [table,setTable] = useState(
         {
-            tableHead: ['ลำดับ', 'รายการ', 'ราคา\n(สูงสุด-ต่ำสุด)\nเฉลี่ย', 'ราคาเฉลี่ย', 'หน่วย'],
+            tableHead: ['วันที่', 'ราคา\nสูงสุด - ต่ำสุด', 'ราคาเฉลี่ย', 'หน่วย'],
             tableData: [
-            //     [1, leftAlign("เนื้อหมู"), "30.00 - 35.00", "32.50", "บาท/กก."],
-            //     [2, leftAlign("เนื้อวัว"), "60.00 - 65.00", "62.50", "บาท/กก."],
+                // ["01/01/2001", "30.00 - 35.00", "32.50", "บาท/กก."],
             ]
         }  
     )
@@ -31,6 +30,8 @@ const ProductDataScreen = ({navigation, route}) => {
     const [list, setList] = useState([]);
 
     const [selectedType, setSelectedType] = useState();
+
+    const [selectedProduct, setSelectedProduct] = useState();
 
     const [productList, setProductList] = useState({});
 
@@ -40,7 +41,7 @@ const ProductDataScreen = ({navigation, route}) => {
         );
     }
 
-    function setTableData(type) {
+    function setItemData(type) {
         setSelectedType(type)
         let mounted = true;
         getProductList()
@@ -57,6 +58,17 @@ const ProductDataScreen = ({navigation, route}) => {
                 setProductList(newArr)
             }
         return () => mounted = false
+        })
+    }
+
+    function setListData(data) {
+        setSelectedProduct(data)
+        let mounted = true;
+        getProductData(data.product_id)
+        .then(items => {
+            if (mounted) {
+
+            }
         })
     }
 
@@ -109,7 +121,7 @@ const ProductDataScreen = ({navigation, route}) => {
                         style={styles.typePicker}
                         dropdownIconColor="#fff"
                         onValueChange={(itemValue, itemIndex) =>
-                            setTableData(itemValue)
+                            setItemData(itemValue)
                         }
                     >
                         <Picker.Item label="ประเภท..." value="none" style={{}}/>
@@ -118,7 +130,7 @@ const ProductDataScreen = ({navigation, route}) => {
                     </Picker>
 
                     <Picker
-                        selectedValue={selectedType}
+                        selectedValue={selectedProduct}
                         mode={'dropdown'}
                         style={styles.productPicker}
                         dropdownIconColor="#fff"
@@ -151,7 +163,7 @@ const ProductDataScreen = ({navigation, route}) => {
                     <Row 
                         data={table.tableHead}
                         style={styles.tableHead} 
-                        flexArr={[1, 2.5, 2, 1.5, 1.5]}
+                        flexArr={[2, 1.5, 1.5, 1]}
                         textStyle={styles.tableText}
                     />
                 </Table>
@@ -165,7 +177,7 @@ const ProductDataScreen = ({navigation, route}) => {
                                 key={index}
                                 data={rowData}
                                 style={[styles.tableRow, index%2 && {backgroundColor: '#fff'}]}
-                                flexArr={[1, 2.5, 2, 1.5, 1.5]}
+                                flexArr={[2, 1.5, 1.5, 1]}
                                 textStyle={styles.tableText}
                             />
                         ))
