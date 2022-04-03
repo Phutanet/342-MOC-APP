@@ -1,7 +1,10 @@
-import React, {useContext, useState} from 'react'
-import {View, Text, TouchableOpacity, StyleSheet, TextInput, Pressable, ScrollView, Alert} from 'react-native'
+import React, {useState, useContext, useEffect} from 'react';
+import {View, Text, TouchableOpacity, StyleSheet, TextInput, Pressable, ScrollView, Alert} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { AuthContext } from '../navigation/AuthProvider';
+import firestore from '@react-native-firebase/firestore';
+
+
 
 const RegisterScreen = ({navigation}) => {
     const [name, setName] = useState('');
@@ -9,6 +12,7 @@ const RegisterScreen = ({navigation}) => {
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState(''); //Confirm Password Variable
     const {register} = useContext(AuthContext);
+    const usersCollectionRef = firestore().collection('users_info');
 
     const isValidForm = () => {
         //CHECK1 : All fields have value
@@ -31,9 +35,18 @@ const RegisterScreen = ({navigation}) => {
         return true;
     };
 
+    const addUsersInfo = () => {
+        usersCollectionRef.add({
+            Email: email,
+            Name: name,
+        });
+    };
+
+
     const submitForm = () => {
         if(isValidForm()){
-            register(email, password)
+            addUsersInfo(); //add users info to database
+            register(email, password);
         };
     };
 
@@ -49,13 +62,10 @@ const RegisterScreen = ({navigation}) => {
                         name="chevron-left" size={40} color={'black'}/>
                     </TouchableOpacity>
                 </View>
-                    
-        
             </View>
 
             <Text style={styles.textTopic}>ลงทะเบียน</Text>
                 
-
             <Text style={styles.textTopic1}>ชื่อจริง - นามสกุล</Text>
             <View style={styles.boxInput}>
                 <TextInput
