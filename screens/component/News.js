@@ -21,12 +21,19 @@ export default class News extends React.Component {
                                     style = { styles.box1 }
                                 />  
                                 <Text style = { styles.box2 } >
-                                    <Text style = {{ color: 'black' } } >{ data.title } { "\n" } </Text>  
-                                    <Text >{ "\n" } </Text>  
-                                    <Text >{ data.datetime } </Text> 
+                                    <Text style = {{ color: 'black' } } >{ data.title } </Text>   
+                                    <Text >{ "\n" } </Text>    
                                 </Text> 
-                                <Text >{ data.description } </Text>  
                             </View>  
+                            <SafeAreaView style={styles.safe}>
+                                <View style={styles.root}>
+                                    <ReadMore numberOfLines={3} style={styles.textStyle}>
+                                    {data.desciption}
+                                    </ReadMore> 
+                                    <Text style={styles.root}>{ data.datetime } </Text> 
+                                </View>
+                            </SafeAreaView>
+                           
                         </>
                     )
                 })
@@ -73,7 +80,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     box2: {
-        width: 290,
+        width: "80%",
         height: 'auto',
     },
     row: {
@@ -82,6 +89,17 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         justifyContent: 'space-between',
         marginTop: 10,
+    },
+    textStyle: {
+        fontSize: 14,
+        width:"100%",
+    },
+    safe: {
+        flex: 1,
+    },
+    root: {
+        flex: 1,
+        padding: 16,
     },
 
 });
