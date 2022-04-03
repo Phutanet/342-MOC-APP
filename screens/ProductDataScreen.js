@@ -32,11 +32,7 @@ const ProductDataScreen = ({navigation, route}) => {
 
     const [selectedType, setSelectedType] = useState();
 
-    const [productList, setProductList] = useState({
-        "1": "11",
-        "2": "22",
-        "3": "33",
-    });
+    const [productList, setProductList] = useState({});
 
     function leftAlign(value) {
         return (
@@ -50,23 +46,17 @@ const ProductDataScreen = ({navigation, route}) => {
         getProductList()
         .then(items => {
             if (mounted) {
-                const test = items[1].product_name
-                const test2 = items[2].product_name
-                const test3 = items[3].product_name
-
-                const newArr = {
-                    test: test,
-                    test2: test2,
-                    test3: test3,
-                }
-
-                // for (var i=1; i<items.length; i++) {
-                //     const data = items[i].product_name
-                //     newArr.i = data
-                // }
+                const newArr = {}
+                items.forEach(element => {
+                    if (element.sell_type == type && element.category_name == route.params.name) {
+                        const data = element.product_name
+                        newArr[data] = data
+                    }
+                })
 
                 setProductList(newArr)
             }
+        return () => mounted = false
         })
     }
 
@@ -122,9 +112,9 @@ const ProductDataScreen = ({navigation, route}) => {
                             setTableData(itemValue)
                         }
                     >
-                        <Picker.Item label="ประเภท..." value="none" style={{color: '#bbb'}}/>
-                        <Picker.Item label="ขายปลีก" value="retail" style={styles.item}/>
-                        <Picker.Item label="ขายส่ง" value="wholesale" style={styles.item}/>
+                        <Picker.Item label="ประเภท..." value="none" style={{}}/>
+                        <Picker.Item label="ขายปลีก" value="ขายปลีก" style={styles.item}/>
+                        <Picker.Item label="ขายส่ง" value="ขายส่ง" style={styles.item}/>
                     </Picker>
 
                     <Picker
@@ -136,7 +126,7 @@ const ProductDataScreen = ({navigation, route}) => {
                             setSelectedLanguage(itemValue)
                         }
                     >
-                        <Picker.Item label="ชื่อสินค้า..." value="none" style={{color: '#bbb'}}/>
+                        <Picker.Item label="  ชื่อสินค้า..." value="none" style={{}}/>
                         {Object.keys(productList).map((key) => {
                             return (
                                 <Picker.Item 
