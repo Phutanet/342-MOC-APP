@@ -1128,6 +1128,13 @@
   "resolved" "https://registry.npmjs.org/@expo/sdk-runtime-versions/-/sdk-runtime-versions-1.0.0.tgz"
   "version" "1.0.0"
 
+"@fawazahmed/react-native-read-more@^2.3.5":
+  "integrity" "sha512-/eZS4LTJbrdytE4lQppke7n+mql/gHZzlEELAV0Bebq+W8D02AlqigWX59mvEL21PERYcuoJC9ZQ6f6TJBiueA=="
+  "resolved" "https://registry.npmjs.org/@fawazahmed/react-native-read-more/-/react-native-read-more-2.3.5.tgz"
+  "version" "2.3.5"
+  dependencies:
+    "prop-types" "^15.7.2"
+
 "@firebase/analytics-compat@0.1.8":
   "integrity" "sha512-2XBPTFD4DPVZUJZ2tPOib7BfyHB/Ucfq3DfYMNRZFUrgctABTO/lRwjm3oqv4EsoqEOlbxRurvfFN8BQEe28LA=="
   "resolved" "https://registry.npmjs.org/@firebase/analytics-compat/-/analytics-compat-0.1.8.tgz"
