@@ -6,37 +6,33 @@ import ReadMore from '@fawazahmed/react-native-read-more';
 export default class News extends React.Component {
 
     render() {
-        return ( <
-            View >
-            <
-            Image style = { styles.banner }
+        return ( 
+            <View >
+            <Image 
+            style = { styles.banner }
             source = { require('.././image/HomwBanner.jpg') }
-            />  {
-                customData.reverse().map((data) => {
-                    return ( <
-                        >
-                        <
-                        View style = { styles.row } >
-                        <
-                        Image source = { require('../image/mocLogo.png') }
-                        style = { styles.box1 }
-                        />   <
-                        Text style = { styles.box2 } >
-                        <
-                        Text style = {
-                            { color: 'black' } } > { data.title } { "\n" } < /Text>   <
-                        Text > { "\n" } < /Text>   <
-                        Text > { data.datetime } < /Text>  <
-                        /Text>  <
-                        Text > { data.description } < /Text>   <
-                        /View>   <
-                        />
+            /> 
+            {customData.reverse().map((data) => {
+                    return (
+                        <>
+                            <View style = { styles.row } >
+                                <Image 
+                                    source = { require('../image/mocLogo.png') }
+                                    style = { styles.box1 }
+                                />  
+                                <Text style = { styles.box2 } >
+                                    <Text style = {{ color: 'black' } } >{ data.title } { "\n" } </Text>  
+                                    <Text >{ "\n" } </Text>  
+                                    <Text >{ data.datetime } </Text> 
+                                </Text> 
+                                <Text >{ data.description } </Text>  
+                            </View>  
+                        </>
                     )
                 })
             }
 
-            <
-            /View>
+            </View>
         );
     }
 }
