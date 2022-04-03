@@ -8,6 +8,7 @@
     npm install @react-native-firebase/auth
     npm install react-native-table-component
     npm install @react-native-firebase/firestore
+    npm install @react-native-picker/picker
     
 ## Run Project
     npx react-native run-android
