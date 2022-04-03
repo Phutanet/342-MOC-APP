@@ -4,23 +4,31 @@ import customData from './JSON/news'
 
 export default class News extends React.Component {
 
-    render() {        
-        return (
-            <View>
-                <Image
-                style={styles.banner}
-                source={require('.././image/HomwBanner.jpg')}
-            />
-                { customData.map((data) =>{
-                    return(
-                        <>
-                        <View style = {styles.row}>
-                            <Image source={require('../image/docment-icon.png')} style = {styles.box1} />
-                            <Text style = {styles.box2} >{data.title}</Text>
-                        </View>
-                        </>
-                    )})}
-            </View>
+    render() {
+        return ( <
+            View >
+            <
+            Image style = { styles.banner }
+            source = { require('.././image/HomwBanner.jpg') }
+            /> {
+                customData.map((data) => {
+                    return ( <
+                        >
+                        <
+                        View style = { styles.row } >
+                        <
+                        Image source = { require('../image/docment-icon.png') }
+                        style = { styles.box1 }
+                        /> <
+                        Text style = { styles.box2 } > { data.title } < /Text> <
+                        /View> <
+                        />
+                    )
+                })
+            }
+
+            <
+            /View>
         );
     }
 }
@@ -42,15 +50,15 @@ const styles = StyleSheet.create({
     date: {
         fontSize: 14
     },
-    image: { 
-        width: 350, 
-        height: 320, 
+    image: {
+        width: 350,
+        height: 320,
         justifyContent: 'center',
         alignItems: 'center',
     },
     banner: {
-        width: 450, 
-        height:140,
+        width: 450,
+        height: 140,
         opacity: 0.8
     },
     box1: {
