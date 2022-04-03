@@ -1,21 +1,19 @@
-import { DrawerItemList } from '@react-navigation/drawer';
 import * as React from 'react';
-import {useContext, useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
   Image,
   ScrollView,
-  FlatList,
   ActivityIndicator,
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
-import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+import { Table, Row } from 'react-native-table-component';
 import Header from './component/Header';
 import { getProductData, getProductList } from './services/productData'
+import moment from "moment";
 
 const ProductDataScreen = ({navigation, route}) => {
     const [table,setTable] = useState(
@@ -27,7 +25,12 @@ const ProductDataScreen = ({navigation, route}) => {
         }  
     )
 
-    const [list, setList] = useState([]);
+    const [isLoading,setIsLoading] = useState(false)
+
+    const date = {
+        from_date: moment().subtract(1, 'months'),
+        to_date: moment(),
+    }
 
     const [selectedType, setSelectedType] = useState();
 
@@ -65,63 +68,30 @@ const ProductDataScreen = ({navigation, route}) => {
     function setListData(data) {
         setSelectedProduct(data)
         let mounted = true;
-        getProductData(data)
+        getProductData(data, date.from_date.format().substring(0,10), date.to_date.format().substring(0,10))
         .then(items => {
             if (mounted) {
                 const newArr = []
                 items.price_list.forEach(element => {
+                    const date = moment(element.date).format("L")
                     const min = element.price_min;
                     const max = element.price_max;
                     newArr.push([
-                        element.date,
+                        date,
                         max+" - "+min,
                         ((max+min)/2).toFixed(2),
                         items.unit
                     ])
                     setTable({tableHead: [...table.tableHead], tableData: newArr.reverse()});
                 })
-                // setTable({
-                //     tableHead: ['วันที่', 'ราคา\nสูงสุด - ต่ำสุด', 'ราคาเฉลี่ย', 'หน่วย'],
-                //     tableData: [
-                //         [items.price_list[0].date, "30.00 - 35.00", "32.50", items.unit],
-                //     ]
-                // } )
             }
         return () => mounted = false;
         })
     }
 
-    function addTableData(newData) {
-        const newArr = [...table.tableData];
-        newData.forEach(element => {
-            newArr.push(element);
-        });
-        setTable({tableHead: [...table.tableHead], tableData: newArr});
-    }
-
     useEffect(() => {
-        // let mounted = true;
-        //     getProductData("P11001")
-        //     .then(items => {
-        //         if (mounted) {
-        //             setList(items)
-        //             const min = items.price_min_avg;
-        //             const max = items.price_max_avg;
-        //             addTableData([[
-        //                 1,
-        //                 leftAlign(items.product_name),
-        //                 min+" - "+max,
-        //                 (max+min)/2,
-        //                 items.unit
-        //             ]])
-        //         }
-        //     })
-        // return () => mounted = false;
+
     }, [])
-    
-    function addProduct(id) {
-       
-    }
 
     return (
         <View style={styles.container}>
@@ -174,7 +144,7 @@ const ProductDataScreen = ({navigation, route}) => {
 
 
             <View style={styles.splitLine}>
-                <Text style={styles.splitLineText}>ราคา: {route.params.name}-/category_name/ (ข้อมูล ณ วันที่ /date/ )</Text>
+                <Text style={styles.splitLineText}>ข้อมูลราคา ณ วันที่ {date.from_date.format("L")} ถึง {date.to_date.format("L")}</Text>
             </View>
 
             <View style={styles.dataWrapper}>
