@@ -27,7 +27,7 @@ export default class News extends React.Component {
                             </View>  
                             <SafeAreaView style={styles.safe}>
                                 <View style={styles.root}>
-                                    <ReadMore numberOfLines={3} style={styles.textStyle}>
+                                    <ReadMore numberOfLines={3} style={styles.textStyle} seeLessText="less" seeMoreText='More' seeLessStyle={{color: 'black' }} ellipsis = '...'>
                                     {data.desciption}
                                     </ReadMore> 
                                     <Text style={styles.root}>{ data.datetime } </Text> 
