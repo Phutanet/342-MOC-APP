@@ -1,7 +1,7 @@
 import React from 'react'
 import { SafeAreaView, View, Text, StyleSheet, Image } from 'react-native'
 import customData from './JSON/news'
-import ReadMore from '@fawazahmed/react-native-read-more';
+import ReadMore from 'react-native-read-more-text';
 
 export default class News extends React.Component {
 
@@ -27,10 +27,15 @@ export default class News extends React.Component {
                             </View>  
                             <SafeAreaView style={styles.safe}>
                                 <View style={styles.root}>
-                                    <ReadMore numberOfLines={3} style={styles.textStyle} seeLessText="less" seeMoreText='More' seeLessStyle={{color: 'black' }} ellipsis = '...'>
-                                    {data.desciption}
-                                    </ReadMore> 
-                                    <Text style={styles.root}>{ data.datetime } </Text> 
+                                    <ReadMore
+                                    numberOfLines={3}
+                                    renderTruncatedFooter={this._renderTruncatedFooter}
+                                    renderRevealedFooter={this._renderRevealedFooter}
+                                    onReady={this._handleTextReady}>
+                                        <Text style={styles.teat}>
+                                            {text}
+                                        </Text>
+                                    </ReadMore>
                                 </View>
                             </SafeAreaView>
                            

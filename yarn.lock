@@ -6623,6 +6623,11 @@
   "resolved" "https://registry.npmjs.org/react-native-mail/-/react-native-mail-6.1.1.tgz"
   "version" "6.1.1"
 
+"react-native-read-more-text@^1.1.2":
+  "integrity" "sha512-FIQhOpvikUanwPRl9QVBYmx6Wx7IXxXH/jlzElOLcP+NSgFLw2fRzSekQUq0yicymZsi7cAWW5TtIj8FHWtNDw=="
+  "resolved" "https://registry.npmjs.org/react-native-read-more-text/-/react-native-read-more-text-1.1.2.tgz"
+  "version" "1.1.2"
+
 "react-native-reanimated@^2.3.1", "react-native-reanimated@>= 1.0.0":
   "integrity" "sha512-nzjVqwkB8eeyPKT2KoiA9EEz17ZMFSGMoOTC17Z9b5nE2Z4ZHjHM5EKhY0TlwzXFUuJAE9PhOfxF0wIO/maZSA=="
   "resolved" "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-2.3.1.tgz"
