@@ -1,6 +1,6 @@
 import * as React from 'react';
-import News from './component/News';
 import Header from './component/Header';
+import News from './component/News';
 import {useContext, useState, useEffect} from 'react';
 import {
   SafeAreaView,
@@ -11,17 +11,13 @@ import {
   ScrollView,
 } from 'react-native';
 
-
-
 const HomeScreen = ({navigation}) => {
-
   return (
     <ScrollView style={styles.container}>
-      <Header/>
+      <Header />
       <View>
-        <News/>
+        <News />
       </View>
-
     </ScrollView>
   );
 };

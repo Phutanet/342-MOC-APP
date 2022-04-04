@@ -18,7 +18,6 @@ import Header from './component/Header';
 import ImagePicker from 'react-native-image-crop-picker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-
 const ComplainScreen = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -26,7 +25,6 @@ const ComplainScreen = ({navigation}) => {
   const [image, setImage] = useState('');
   const [width1, setWidth] = useState(0);
   const [height1, setHeight] = useState(0);
-
 
   //const {user} = useContext(AuthContext);
   // firestore()
@@ -42,7 +40,6 @@ const ComplainScreen = ({navigation}) => {
   //         setName(documentSnapshot.data().Name);
   //     });
   //   });
-
 
   const goToMail = () => {
     Linking.openURL(
@@ -109,7 +106,7 @@ const ComplainScreen = ({navigation}) => {
       </View>
 
       <Text style={styles.textTopic}>ข้อความร้องเรียน</Text>
-      
+
       <View style={styles.boxInput}>
         <TextInput
           value={petition}
@@ -150,8 +147,6 @@ const ComplainScreen = ({navigation}) => {
           <Text style={styles.submitButtonText}>ส่งคำร้อง</Text>
         </Pressable>
       </View>
-
-      
     </ScrollView>
   );
 };
@@ -191,6 +186,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 15,
   },
+
   textTitle: {
     fontSize: 23,
     fontWeight: 'bold',
@@ -198,6 +194,7 @@ const styles = StyleSheet.create({
     padding: 20,
     color: 'black',
   },
+
   textTopic: {
     textAlign: 'left',
     paddingLeft: 30,
@@ -205,17 +202,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     padding: 10,
   },
+
   boxInput: {
     alignItems: 'center',
   },
+
   containerfile: {
     flexDirection: 'row',
   },
+
   textconplain: {
     alignItems: 'center',
     fontSize: 14,
     paddingTop: 10,
   },
+
   inputBoxmultiline: {
     backgroundColor: '#dcdcdc',
     width: '80%',
@@ -227,11 +228,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     textAlignVertical: 'top',
   },
+
   cropImage: {
     alignItems: 'center',
     borderColor: 'bold',
     padding: 10,
   },
+  
 });
 
 export default ComplainScreen;

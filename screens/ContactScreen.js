@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
    marginHorizontal:10,
    marginVertical:10,
    flexDirection:'row',
-  marginTop:10
+   marginTop:10,
  },
  icon_facebook: {
   paddingLeft:12
