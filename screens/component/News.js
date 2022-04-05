@@ -10,7 +10,7 @@ export default class News extends React.Component {
             <View >
             <Image 
             style = { styles.banner }
-            source = { require('.././image/HomwBanner.jpg') }
+            source = { require('.././image/HomeBanner.jpg') }
             /> 
             {customData.reverse().map((data) => {
                     return (
@@ -33,7 +33,7 @@ export default class News extends React.Component {
                                     renderRevealedFooter={this._renderRevealedFooter}
                                     onReady={this._handleTextReady}>
                                         <Text style={styles.teat}>
-                                            {text}
+                                            {data.desciption}
                                         </Text>
                                     </ReadMore>
                                 </View>
