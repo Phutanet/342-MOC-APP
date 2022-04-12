@@ -10,7 +10,7 @@ export default class News extends React.Component {
             <View >
             <Image 
             style = { styles.banner }
-            source = { require('.././image/HomeBanner.jpg') }
+            source = { require('.././image/HomBanner.jpg') }
             /> 
             {customData.reverse().map((data) => {
                     return (
