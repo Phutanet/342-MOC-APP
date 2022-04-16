@@ -9,16 +9,24 @@ import {
   TouchableOpacity,
   View,
   ScrollView,
+  ImageBackground
 } from 'react-native';
 
 const HomeScreen = ({navigation}) => {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Header />
-      <View>
-        <News />
-      </View>
-    </ScrollView>
+      
+      <ImageBackground source={require('./image/newsBanner1.jpg')} resizeMode="cover" style={styles.image}>
+                    <Text style={styles.textHeader}>ข่าวประชาสัมพันธ์</Text>
+      </ImageBackground>
+      
+      <ScrollView >
+        <View>
+          <News />
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -26,6 +34,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  image:{
+      height:150,
+      width:'107%',
+      paddingLeft:20,
+  },
+  textHeader:{
+      color:'white',
+      fontSize:35,
+      paddingTop:70,
+      paddingLeft:5,
+  }
 });
 
 export default HomeScreen;

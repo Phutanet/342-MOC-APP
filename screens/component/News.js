@@ -9,12 +9,8 @@ export default class News extends React.Component {
     render() {
         return ( 
             <View>
-                <ImageBackground source={require('../image/newsBanner1.jpg')} resizeMode="cover" style={styles.image}>
-                    <Text style={styles.textHeader}>ข่าวประชาสัมพันธ์</Text>
-                </ImageBackground>
                 <View style={{color:'#00ffffff'}}>
                     <View style={styles.cardContract}>
-                
                         {customData.reverse().map((data) => { 
                                 return (
                                 
@@ -117,24 +113,10 @@ const styles = StyleSheet.create({
         paddingRight:16,
     },
     cardContract: {
-        backgroundColor:'white',
-        width:'100%',
+        width: "100%",
         borderRadius:20,
         borderWidth:1
-    
-      },
-      image:{
-        height:150,
-        width:'107%',
-        paddingLeft:20,
-       
-      },
-      textHeader:{
-        color:'white',
-        fontSize:35,
-        paddingTop:70,
-        paddingLeft:5,
-
-      }
+    },
+   
 
 });
