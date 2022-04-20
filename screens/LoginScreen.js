@@ -45,7 +45,7 @@ const LoginScreen = ({navigation}) => {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={{alignItems: 'center', padding: 10}}>
         <Image
           source={require('./image/mocLogo.png')}
@@ -102,7 +102,7 @@ const LoginScreen = ({navigation}) => {
         </Pressable>
         
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -119,8 +119,8 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: 200,
-    height: 200,
+    width: 180,
+    height: 180,
   },
 
   inputBox: {
