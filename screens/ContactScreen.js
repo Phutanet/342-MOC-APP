@@ -9,14 +9,16 @@ import {
   ScrollView,
   ImageBackground,
   SafeAreaView,
-  StatusBar
+  StatusBar,
+  Dimensions
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Header from './component/Header';
 
-
+const windowHeight = Dimensions.get('window').height;
 const ContactScreen = ({navigation}) => {
   const callcenterNumber = '025077000';
+
   return (
     <View style={styles.container}>
 
@@ -36,10 +38,13 @@ const ContactScreen = ({navigation}) => {
                     <Text style={styles.textOnButtonLink}>
                       Facebook
                     </Text>
-                    <MaterialCommunityIcons 
+                    <View style={styles.icon_facebook}>
+                      <MaterialCommunityIcons 
                     name="chevron-right" size={30} color={'#000000'}
-                    style={styles.icon_facebook}
+                    
                     />
+                    </View>
+                    
                     </View>
                     
 
@@ -57,10 +62,13 @@ const ContactScreen = ({navigation}) => {
                     <Text style={styles.textOnButtonLink}>
                       Call center
                     </Text>
-                    <MaterialCommunityIcons 
+                    <View style={styles.icon_facebook}>
+                      <MaterialCommunityIcons 
                     name="chevron-right" size={30} color={'#000000'}
-                    style={styles.icon_call}
+                    
                     />
+                    </View>
+                    
                     </View>
                     
 
@@ -79,10 +87,13 @@ const ContactScreen = ({navigation}) => {
                     <Text style={styles.textOnButtonLink}>
                       Website
                     </Text>
-                    <MaterialCommunityIcons 
+                    <View style={styles.icon_facebook}>
+                      <MaterialCommunityIcons 
                     name="chevron-right" size={30} color={'#000000'}
-                    style={styles.icon_web}
+                    
                     />
+                    </View>
+                    
                     </View>
                     
 
@@ -100,10 +111,13 @@ const ContactScreen = ({navigation}) => {
                     <Text style={styles.textOnButtonLink}>
                       Email
                     </Text>
-                    <MaterialCommunityIcons 
+                    <View style={styles.icon_facebook}>
+                      <MaterialCommunityIcons 
                     name="chevron-right" size={30} color={'#000000'}
-                    style={styles.icon_mail}
+                    
                     />
+                    </View>
+                    
                     </View>
                     
 
@@ -121,10 +135,13 @@ const ContactScreen = ({navigation}) => {
                     <Text style={styles.textOnButtonLink}>
                       Location
                     </Text>
-                    <MaterialCommunityIcons 
-                    style={styles.icon_location}
+                    <View style={styles.icon_facebook}>
+                      <MaterialCommunityIcons 
+                    
                     name="chevron-right" size={30} color={'#000000'} 
                     />
+                    </View>
+                    
                     </View>
                     
 
@@ -147,11 +164,11 @@ const styles = StyleSheet.create({
   cardContract: {
     alignItems:'center',
     backgroundColor:'white',
-    width:'98%',
+    width:'100%',
     borderRadius:20,
     paddingTop:50,
-    paddingBottom:100,
-    marginLeft:-47
+    marginLeft:-47,
+    height:windowHeight
 
   },
 
@@ -168,16 +185,10 @@ const styles = StyleSheet.create({
   },
   card: {
     width:'70%',
-    height:50,
     borderRadius:6,
     backgroundColor: '#dcdcdc',
     elevation:3,
-    shadowOffset:{width:1, height:1},
-    shadowColor:'#333',
-    shadowOpacity:0.3,
-    shadowRadius:2,
-    marginHorizontal:4,
-    marginVertical:12,
+    marginVertical:'3%',
     borderWidth: 1,
     borderColor: "#a9a9a9",
   },
@@ -185,10 +196,12 @@ const styles = StyleSheet.create({
    marginHorizontal:10,
    marginVertical:10,
    flexDirection:'row',
-   marginTop:10,
  },
  icon_facebook: {
-  paddingLeft:12
+  flex:1,
+  flexDirection: 'row',
+  justifyContent:'flex-end',
+  paddingRight:10
  },
  icon_call: {
   paddingLeft:4

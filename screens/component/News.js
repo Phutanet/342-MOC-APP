@@ -114,8 +114,6 @@ const styles = StyleSheet.create({
     },
     cardContract: {
         width: "100%",
-        borderRadius:20,
-        borderWidth:1
     },
    
 

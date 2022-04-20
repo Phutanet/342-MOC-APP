@@ -17,7 +17,7 @@ const HomeScreen = ({navigation}) => {
     <View style={styles.container}>
       <Header />
       
-      <ImageBackground source={require('./image/newsBanner1.jpg')} resizeMode="cover" style={styles.image}>
+      <ImageBackground source={require('./image/asd1.jpg')} resizeMode="cover" style={styles.image}>
                     <Text style={styles.textHeader}>ข่าวประชาสัมพันธ์</Text>
       </ImageBackground>
       
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image:{
-      height:150,
-      width:'107%',
+      height:160,
+      width:'100%',
       paddingLeft:20,
   },
   textHeader:{
