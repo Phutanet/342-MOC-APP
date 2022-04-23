@@ -17,16 +17,16 @@ const HomeScreen = ({navigation}) => {
     <View style={styles.container}>
       <Header />
       
-      <ImageBackground source={require('./image/newsBanner1.jpg')} resizeMode="cover" style={styles.image}>
+      <ImageBackground source={require('./image/Untitled-1.jpg')} resizeMode="cover" style={styles.image}>
                     <Text style={styles.textHeader}>ข่าวประชาสัมพันธ์</Text>
-      </ImageBackground>
-      
-      <ScrollView >
-        <View >
+      <ScrollView style={styles.news}>
+        <View>
           <News />
         </View>
       </ScrollView>
+      </ImageBackground>
     </View>
+    
   );
 };
 
@@ -35,15 +35,23 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image:{
-      height:160,
+      height:"110%",
       width:'100%',
+      // paddingLeft:20,
+  },
+  news: {
+      paddingLeft:0,
+      borderRadius:10,
+      paddingTop:10,
+      zIndex: 3,
+      backgroundColor: '#ffffff'
   },
   textHeader:{
-      color:'white',
-      fontSize:35,
-      paddingTop:70,
-      paddingLeft:5,
-  }
+    color:'white',
+    fontSize:35,
+    paddingTop:70,
+    paddingLeft:5,
+}
 });
 
 export default HomeScreen;
