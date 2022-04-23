@@ -122,9 +122,11 @@ const styles = StyleSheet.create({
     fontSize:25,
     fontWeight:'bold',
     textAlign:'left',
-    padding:20,
-    paddingTop:40,
-    color:'black'
+    padding:10,
+    marginTop:10,
+    marginBottom:10,
+    marginLeft:20,
+    color:'black',
   },
   list: {
     justifyContent: 'center',

@@ -170,8 +170,8 @@ const styles = StyleSheet.create({
 
   textTopic: {
     paddingLeft: 20,
-    paddingBottom: 12,
-    fontSize: 40,
+    paddingBottom: 8,
+    fontSize: 35,
     fontWeight: 'bold',
     color: 'black',
   },
@@ -181,9 +181,9 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
     fontSize: 18,
     fontWeight: 'bold',
-    padding: 10,
-    paddingTop: 24,
-    paddingBottom: 12,
+    marginTop: 20,
+    marginBottom:10,
+    
   },
 
   boxInput: {

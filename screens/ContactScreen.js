@@ -166,10 +166,9 @@ const styles = StyleSheet.create({
     backgroundColor:'white',
     width:'100%',
     borderRadius:20,
-    paddingTop:50,
+    paddingTop:40,
     marginLeft:-47,
-    height:windowHeight
-
+    height:windowHeight,
   },
 
   buttonLink: {
@@ -188,9 +187,9 @@ const styles = StyleSheet.create({
     borderRadius:6,
     backgroundColor: '#dcdcdc',
     elevation:3,
-    marginVertical:'3%',
     borderWidth: 1,
     borderColor: "#a9a9a9",
+    marginBottom: 20,
   },
  cardContent: {
    marginHorizontal:10,

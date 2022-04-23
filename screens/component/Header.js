@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   logoutButtonText: {
     fontSize: 12,
-    color: 'gray',
+    color: 'rgba(218, 218, 218, 1)',
   },
 });
 

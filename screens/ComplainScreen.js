@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
 
   submitButton: {
     backgroundColor: 'rgba(29, 59, 134, 1)',
-    width: '25%',
+    width: '35%',
     padding: 10,
     marginVertical: 10,
     alignItems: 'center',
@@ -182,16 +182,18 @@ const styles = StyleSheet.create({
   },
 
   submitButtonText: {
-    fontWeight: 'bold',
     color: 'white',
+    fontWeight: 'bold',
     fontSize: 15,
   },
 
   textTitle: {
-    fontSize: 23,
+    fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
-    padding: 20,
+    padding: 10,
+    marginTop:10,
+    marginBottom:15,
     color: 'black',
   },
 
@@ -200,11 +202,12 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
     fontSize: 18,
     fontWeight: 'bold',
-    padding: 10,
+    marginBottom:8,
   },
 
   boxInput: {
     alignItems: 'center',
+    marginBottom:10,
   },
 
   containerfile: {
@@ -220,7 +223,7 @@ const styles = StyleSheet.create({
   inputBoxmultiline: {
     backgroundColor: '#dcdcdc',
     width: '80%',
-    height: 160,
+    height: 150,
     borderColor: '#e8e8e8',
     borderRadius: 30,
     paddingHorizontal: 20,

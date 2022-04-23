@@ -10,6 +10,7 @@
     npm install @react-native-firebase/firestore
     npm install @react-native-picker/picker
     npm install moment
+    npm i react-native-read-more-text --save
     
 ## Run Project
     npx react-native run-android

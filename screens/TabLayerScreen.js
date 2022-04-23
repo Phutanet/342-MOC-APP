@@ -13,10 +13,10 @@ function TabLayerScreen() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: 'rgba(29, 59, 134, 1)',
-        tabBarActiveBackgroundColor: 'rgba(168, 168, 168, 1)',
-        tabBarInactiveTintColor: 'rgba(30, 30, 30, 1)',
-        tabBarInactiveBackgroundColor: 'rgba(168, 168, 168, 1)',
+        tabBarActiveTintColor: 'rgba(255, 255, 255, 1)',
+        tabBarActiveBackgroundColor: 'rgba(29, 59, 134, 1)',
+        tabBarInactiveTintColor: 'rgba(4, 26, 78, 1)',
+        tabBarInactiveBackgroundColor: 'rgba(29, 59, 134, 1)',
         tabBarHideOnKeyboard: true,
         headerShown: false,
         tabBarStyle: {

@@ -45,7 +45,7 @@ const LoginScreen = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={{alignItems: 'center', padding: 10}}>
         <Image
           source={require('./image/mocLogo.png')}
@@ -83,26 +83,14 @@ const LoginScreen = ({navigation}) => {
       </View>
 
       <View style={styles.footer}>
-
-        <Pressable onPress={onForgotPasswordPressed}>
-          <Text style={styles.forgotPasswordButtonText}>
-            ลืมรหัสผ่าน / Forgot Password?
-          </Text>
-        </Pressable>
-
-        <View style={{flexDirection: 'row', alignItems: 'center', padding: 10}}>
-          <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
-        </View>
-
         <Text>ท่านยังไม่มีบัญชีใช่หรือไม่?</Text>
         <Pressable onPress={() => navigation.navigate('RegisterScreen')}>
           <Text style={styles.createAccountButtonText}>
             สร้างบัญชีใหม่ / Create account
           </Text>
         </Pressable>
-        
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -137,6 +125,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(29, 59, 134, 1)',
     width: '40%',
     padding: 10,
+    marginTop:30,
     marginVertical: 25,
     alignItems: 'center',
     borderRadius: 25,
@@ -171,7 +160,7 @@ const styles = StyleSheet.create({
 
   footer: {
     alignItems: 'center',
-    padding: 60,
+    padding: 40,
   },
   
 });
