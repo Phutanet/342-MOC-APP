@@ -12,7 +12,8 @@ import {
 import {Picker} from '@react-native-picker/picker';
 import { Table, Row } from 'react-native-table-component';
 import Header from './component/Header';
-import { getProductData, getProductList } from './services/productData'
+// import { getProductData, getProductList } from './services/productData'
+import { getProductData, getProductList } from './services/productDataDummy'
 import moment from "moment";
 
 const ProductDataScreen = ({navigation, route}) => {
@@ -46,47 +47,51 @@ const ProductDataScreen = ({navigation, route}) => {
 
     function setItemData(type) {
         setSelectedType(type)
-        let mounted = true;
-        getProductList()
-        .then(items => {
-            if (mounted) {
-                const newArr = {}
-                items.forEach(element => {
-                    if (element.sell_type == type && element.category_name == route.params.name) {
-                        const key = element.product_id
-                        const name = element.product_name
-                        newArr[key] = name
-                    }
-                })
+        // let mounted = true;
+        // getProductList()
+        // .then(items => {
+        //     if (mounted) {
+        //         const newArr = {}
+        //         items.forEach(element => {
+        //             if (element.sell_type == type && element.category_name == route.params.name) {
+        //                 const key = element.product_id
+        //                 const name = element.product_name
+        //                 newArr[key] = name
+        //             }
+        //         })
 
-                setProductList(newArr)
-            }
-        return () => mounted = false
-        })
+        //         setProductList(newArr)
+        //     }
+        // return () => mounted = false
+        // })
+        const arr = getProductList()
+        setProductList(arr)
     }
 
     function setListData(data) {
         setSelectedProduct(data)
-        let mounted = true;
-        getProductData(data, date.from_date.format().substring(0,10), date.to_date.format().substring(0,10))
-        .then(items => {
-            if (mounted) {
-                const newArr = []
-                items.price_list.forEach(element => {
-                    const date = moment(element.date).format("L")
-                    const min = element.price_min;
-                    const max = element.price_max;
-                    newArr.push([
-                        date,
-                        max+" - "+min,
-                        ((max+min)/2).toFixed(2),
-                        items.unit
-                    ])
-                    setTable({tableHead: [...table.tableHead], tableData: newArr.reverse()});
-                })
-            }
-        return () => mounted = false;
-        })
+        // let mounted = true;
+        // getProductData(data, date.from_date.format().substring(0,10), date.to_date.format().substring(0,10))
+        // .then(items => {
+        //     if (mounted) {
+        //         const newArr = []
+        //         items.price_list.forEach(element => {
+        //             const date = moment(element.date).format("L")
+        //             const min = element.price_min;
+        //             const max = element.price_max;
+        //             newArr.push([
+        //                 date,
+        //                 max+" - "+min,
+        //                 ((max+min)/2).toFixed(2),
+        //                 items.unit
+        //             ])
+        //             setTable({tableHead: [...table.tableHead], tableData: newArr.reverse()});
+        //         })
+        //     }
+        // return () => mounted = false;
+        // })
+        const arr = getProductData()
+        setTable({tableHead: [...table.tableHead], tableData: arr.reverse()});
     }
 
     useEffect(() => {
